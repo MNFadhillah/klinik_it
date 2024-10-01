@@ -117,7 +117,7 @@
     </header>
 
     <div class="image-container">
-        <img src="img/instalasi software.jpg" alt="Foto Instalasi Software">
+        <img src="../assets/img/instalasi_software.jpg" alt="Foto Instalasi Software">
     </div>
 
     <!-- Teks di bawah gambar dengan layout rata kiri -->
