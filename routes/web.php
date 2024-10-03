@@ -28,3 +28,24 @@ Route::get('/tentang', [PageController::class, 'tentang'])->name('tentang');
 
 // Route untuk halaman Layanan Instalasi Software
 Route::get('layanan/instalasi_software', [PageController::class, 'software'])->name('software');
+
+// Route untuk halaman Layanan Instalasi Jaringan
+Route::get('layanan/instalasi_jaringan', [PageController::class, 'jaringan'])->name('jaringan');
+
+// Route untuk halaman Layanan Perakitan Instalasi
+Route::get('layanan/perakitan_instalasi', [PageController::class, 'perakitan'])->name('perakitan');
+
+// Route untuk halaman Layanan Servis Komputer
+Route::get('layanan/servis_komputer', [PageController::class, 'serviskomputer'])->name('serviskomputer');
+
+// Route untuk halaman Layanan Servis Laptop/notebook
+Route::get('layanan/servis_laptop', [PageController::class, 'servislaptop'])->name('servislaptop');
+
+// Route untuk halaman Formulir Servis
+Route::get('formulir/form_servis', [PageController::class, 'formservis'])->name('formservis');
+
+// Route untuk halaman Formulir Instalasi
+Route::get('formulir/form_instalasi', [PageController::class, 'forminstalasi'])->name('forminstalasi');
+
+// Route untuk halaman Chat
+Route::get('layanan/chat', [PageController::class, 'chat'])->name('chat');

@@ -34,7 +34,6 @@
             color: #4a2c82;
         }
 
-        /* Gambar di tengah */
         .image-container {
             text-align: center;
             margin: 20px 0;
@@ -44,7 +43,6 @@
             width: 300px;
         }
 
-        /* Teks di bawah gambar dengan layout rata kiri */
         .description {
             max-width: 1200px;
             margin: 0 auto;
@@ -52,24 +50,15 @@
             text-align: left;
         }
 
-        .description p {
+        .description p, .description ul li {
             font-size: 1.1rem;
-            margin-bottom: 20px; /* Tambahkan jarak bawah agar lebih rapi */
-            color: #65558F; /* Warna ungu untuk teks */
+            color: #65558F;
         }
 
         .description ul {
-            font-size: 1.1rem;
-            margin-top: 10px;
-            margin-bottom: 20px; /* Tambahkan jarak bawah agar lebih rapi */
+            margin: 10px 0;
         }
 
-        .description ul li {
-            margin-bottom: 10px;
-            color: #65558F; /* Warna ungu untuk item daftar */
-        }
-
-        /* Footer tombol rata kanan kiri */
         .button-container {
             display: flex;
             justify-content: space-between;
@@ -83,7 +72,7 @@
         }
 
         .button-container p {
-            color: #65558F; /* Warna ungu untuk teks di tombol */
+            color: #65558F;
         }
 
         .button-container a {
@@ -92,15 +81,15 @@
             padding: 10px 20px;
             font-size: 1rem;
             border-radius: 25px;
-            text-decoration: none;
             display: flex;
             align-items: center;
-            margin-top: 10px;
+            text-decoration: none;
             transition: background-color 0.3s ease;
+            margin-top: 10px;
         }
 
         .button-container a i {
-            margin-right: 8px; /* Spasi antara ikon dan teks */
+            margin-right: 8px;
         }
 
         .button-container a:hover {
@@ -109,9 +98,9 @@
 
         .center-button {
             display: flex;
-            flex-direction: column; /* Vertikal */
-            align-items: center; /* Pusatkan tombol di tengah */
-            margin-top: 10px; /* Tambahkan jarak atas */
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -145,7 +134,6 @@
                       <a class="dropdown-item" href="/layanan/servis_laptop">Notebook / Laptop</a>
                     </div>
                   </li>
-                  
                 <li class="nav-item">
                     <a class="nav-link" href="/informasi">Informasi</a>
                 </li>
@@ -159,25 +147,24 @@
         </div>
     </nav>
     <header>
-        <h1>Instalasi Software</h1>
+        <h1>Jasa Servis Laptop/Notebook</h1>
     </header>
 
     <div class="image-container">
-        <img src="../assets/img/instalasi_software.jpg" alt="Foto Instalasi Software">
+        <img src="../assets/img/servis_laptop.jpg" alt="Foto Instalasi Software">
     </div>
 
     <!-- Teks di bawah gambar dengan layout rata kiri -->
     <div class="description">
         <ul>
-            <li>Instalasi software adalah proses menambahkan perangkat lunak ke sistem komputer agar bisa digunakan. Tahapannya meliputi:</li>
-            <br>
-            <p>1. Persiapan: Unduh atau akses berkas instalasi, pastikan perangkat memenuhi persyaratan.</p>
-            <p>2. Memulai Instalasi: Jalankan berkas instalasi dan berikan izin administrator jika diperlukan.</p>
-            <p>3. Wizard Instalasi: Ikuti petunjuk untuk memilih opsi seperti lokasi penyimpanan dan persetujuan lisensi.</p>
-            <p>4. Proses Instalasi: Sistem menyalin berkas dan menambahkan konfigurasi yang diperlukan.</p>
-            <p>5. Selesai: Instalasi selesai, software siap digunakan; kadang perlu restart.</p>
-            <br>
-            <li>Hasil akhir adalah software yang siap diuji dan digunakan sesuai fungsi.</li>
+            <li>Servis laptop atau notebook mencakup perbaikan dan pemeliharaan perangkat untuk memastikan kinerjanya optimal. Layanan ini meliputi :</li>
+            <p>a. Perbaikan Hardware: Mengganti atau memperbaiki komponen seperti layar, keyboard, baterai, atau motherboard.</p>
+            <p>b. Perbaikan Software: Instalasi ulang OS, memperbaiki crash, virus, dan error sistem.</p>
+            <p>c. Upgrade Komponen: Meningkatkan RAM, SSD, atau GPU.</p>
+            <p>d. Pembersihan dan Pendinginan: Membersihkan kipas untuk mencegah overheat.</p>
+            <p>e. Backup/Pemulihan Data: Memulihkan data yang hilang.</p>
+            <p>f. Perbaikan Koneksi Jaringan: Mengatasi masalah Wi-Fi atau internet.</p>
+            <li>Hasil akhir adalah laptop/notebook yang sudah diservis siap diuji dan digunakan sesuai fungsi.</li>
         </ul>
     </div>
 
@@ -185,15 +172,11 @@
     <div class="button-container">
         <section class="center-button">
             <p>Mulai Chat :</p>
-            <a href="/layanan/chat">
-                <i class="fas fa-comments"></i> Click to Chat
-            </a>
+            <a href="/layanan/chat"><i class="fas fa-comments"></i>Click to Chat</a> <!-- Link ke WhatsApp -->
         </section>
         <section class="center-button">
             <p>Ingin Instalasi? Isi formulir di bawah ini :</p>
-            <a href="/formulir/form_instalasi">
-                <i class="fas fa-file-alt"></i> Klik untuk akses
-            </a>
+            <a href="/formulir/form_servis"><i class="fas fa-file-alt"></i>Klik untuk akses</a> <!-- Link ke halaman formulir -->
         </section>
     </div>
 

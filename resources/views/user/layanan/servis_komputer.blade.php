@@ -20,6 +20,7 @@
         }
 
         body {
+            /* background-color: #e6effa; */
             margin: 0;
         }
 
@@ -86,24 +87,25 @@
             color: #65558F; /* Warna ungu untuk teks di tombol */
         }
 
-        .button-container a {
+        .button-container button {
             background-color: #65558F;
             color: white;
+            border: none;
             padding: 10px 20px;
             font-size: 1rem;
+            cursor: pointer;
             border-radius: 25px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
             transition: background-color 0.3s ease;
+            display: flex; /* Gunakan flexbox untuk tata letak */
+            align-items: center; /* Vertikal align icon dan teks */
+            margin-top: 10px; /* Tambahkan jarak atas untuk pemisahan */
         }
 
-        .button-container a i {
+        .button-container button i {
             margin-right: 8px; /* Spasi antara ikon dan teks */
         }
 
-        .button-container a:hover {
+        .button-container button:hover {
             background-color: #8967B3;
         }
 
@@ -145,7 +147,6 @@
                       <a class="dropdown-item" href="/layanan/servis_laptop">Notebook / Laptop</a>
                     </div>
                   </li>
-                  
                 <li class="nav-item">
                     <a class="nav-link" href="/informasi">Informasi</a>
                 </li>
@@ -159,25 +160,26 @@
         </div>
     </nav>
     <header>
-        <h1>Instalasi Software</h1>
+        <h1>Jasa Servis Komputer</h1>
     </header>
 
     <div class="image-container">
-        <img src="../assets/img/instalasi_software.jpg" alt="Foto Instalasi Software">
+        <img src="../assets/img/servis_komputer.jpg" alt="Foto Instalasi Software">
     </div>
 
     <!-- Teks di bawah gambar dengan layout rata kiri -->
     <div class="description">
         <ul>
-            <li>Instalasi software adalah proses menambahkan perangkat lunak ke sistem komputer agar bisa digunakan. Tahapannya meliputi:</li>
+            <li>Servis komputer adalah proses perawatan, perbaikan, atau peningkatan sistem komputer untuk memastikan kinerjanya tetap optimal. Ini mencakup :</li>
             <br>
-            <p>1. Persiapan: Unduh atau akses berkas instalasi, pastikan perangkat memenuhi persyaratan.</p>
-            <p>2. Memulai Instalasi: Jalankan berkas instalasi dan berikan izin administrator jika diperlukan.</p>
-            <p>3. Wizard Instalasi: Ikuti petunjuk untuk memilih opsi seperti lokasi penyimpanan dan persetujuan lisensi.</p>
-            <p>4. Proses Instalasi: Sistem menyalin berkas dan menambahkan konfigurasi yang diperlukan.</p>
-            <p>5. Selesai: Instalasi selesai, software siap digunakan; kadang perlu restart.</p>
+            <p>a. Pembersihan Fisik: Menghilangkan debu dan kotoran dari komponen hardware untuk mencegah overheating.</p>
+            <p>b. Pemeriksaan dan Penggantian Komponen: Memeriksa hardware seperti hard drive, RAM, atau motherboard, dan mengganti jika ada yang rusak.</p>
+            <p>c. Perbaikan Software: Memperbaiki masalah pada sistem operasi, virus, atau program yang menyebabkan kinerja lambat atau error.</p>
+            <p>d. Pembaruan: Meng-upgrade software atau hardware untuk meningkatkan performa.</p>
+            <p>e. Optimasi Sistem: Melakukan defragmentasi, pembersihan file sampah, dan optimasi setting agar komputer berjalan lebih lancar.</p>
             <br>
-            <li>Hasil akhir adalah software yang siap diuji dan digunakan sesuai fungsi.</li>
+            <li>Hasil akhir adalah komputer yang sudah diservis siap diuji dan digunakan sesuai fungsi.</li>
+            <br>
         </ul>
     </div>
 
@@ -185,15 +187,11 @@
     <div class="button-container">
         <section class="center-button">
             <p>Mulai Chat :</p>
-            <a href="/layanan/chat">
-                <i class="fas fa-comments"></i> Click to Chat
-            </a>
+            <button onclick="window.location.href='/layanan/chat'"><i class="fas fa-comments"></i>Click to Chat</button> <!-- Tombol Chat -->
         </section>
         <section class="center-button">
             <p>Ingin Instalasi? Isi formulir di bawah ini :</p>
-            <a href="/formulir/form_instalasi">
-                <i class="fas fa-file-alt"></i> Klik untuk akses
-            </a>
+            <button onclick="window.location.href='/formulir/form_servis'"><i class="fas fa-file-alt"></i>Klik untuk akses</button> <!-- Tombol Formulir -->
         </section>
     </div>
 

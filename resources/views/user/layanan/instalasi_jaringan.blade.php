@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instalasi Software</title>
+    <title>Instalasi Jaringan</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -137,7 +137,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <h6 class="dropdown-header">Jasa Instalasi</h6>
                       <a class="dropdown-item" href="/layanan/instalasi_software">Instalasi Software</a>
-                      <a class="dropdown-item" href="/layanan/instalasi_jaringan">Instalasi Jaringan</a>
+                      <a class="dropdown-item" href="/layanan/instalasi-jaringan">Instalasi Jaringan</a>
                       <a class="dropdown-item" href="/layanan/perakitan_instalasi">Perakitan & Instalasi Komputer</a>
                       <div class="dropdown-divider"></div>
                       <h6 class="dropdown-header">Jasa Servis</h6>
@@ -145,6 +145,7 @@
                       <a class="dropdown-item" href="/layanan/servis_laptop">Notebook / Laptop</a>
                     </div>
                   </li>
+                  
                   
                 <li class="nav-item">
                     <a class="nav-link" href="/informasi">Informasi</a>
@@ -159,25 +160,27 @@
         </div>
     </nav>
     <header>
-        <h1>Instalasi Software</h1>
+        <h1>Instalasi Jaringan</h1>
     </header>
 
     <div class="image-container">
-        <img src="../assets/img/instalasi_software.jpg" alt="Foto Instalasi Software">
+        <img src="../assets/img/instalasi_jaringan.jpg" alt="Foto Instalasi Jaringan">
     </div>
 
     <!-- Teks di bawah gambar dengan layout rata kiri -->
     <div class="description">
         <ul>
-            <li>Instalasi software adalah proses menambahkan perangkat lunak ke sistem komputer agar bisa digunakan. Tahapannya meliputi:</li>
+            <li>Berikut adalah deskripsi singkat instalasi jaringan dalam bentuk poin :</li>
             <br>
-            <p>1. Persiapan: Unduh atau akses berkas instalasi, pastikan perangkat memenuhi persyaratan.</p>
-            <p>2. Memulai Instalasi: Jalankan berkas instalasi dan berikan izin administrator jika diperlukan.</p>
-            <p>3. Wizard Instalasi: Ikuti petunjuk untuk memilih opsi seperti lokasi penyimpanan dan persetujuan lisensi.</p>
-            <p>4. Proses Instalasi: Sistem menyalin berkas dan menambahkan konfigurasi yang diperlukan.</p>
-            <p>5. Selesai: Instalasi selesai, software siap digunakan; kadang perlu restart.</p>
+            <p>a. Sumber di Server: Software di-host di server pusat, diakses oleh perangkat klien melalui jaringan.</p>
+            <p>b. Instalasi Terpusat: Instalasi dilakukan secara terpusat dari server, menghemat waktu dan tenaga.</p>
+            <p>c. Instalasi Otomatis: Sering menggunakan metode otomatis seperti silent installation tanpa campur tangan pengguna.</p>
+            <p>d. Konsistensi Software: Memastikan semua perangkat menggunakan versi software yang sama, menjaga konsistensi.</p>
+            <p>e. Keamanan dan Izin: Memerlukan izin administrator, memastikan instalasi yang aman dan terkontrol.</p>
+            <p>f. Pembaruan Mudah: Mempermudah distribusi pembaruan ke semua perangkat secara bersamaan.</p>
+            <p>g. Efisiensi Skala: Cocok untuk organisasi besar, mengelola instalasi software di banyak perangkat sekaligus.</p>
             <br>
-            <li>Hasil akhir adalah software yang siap diuji dan digunakan sesuai fungsi.</li>
+            <li>Hasil akhir adalah jaringan yang siap diuji dan digunakan sesuai fungsi.</li>
         </ul>
     </div>
 

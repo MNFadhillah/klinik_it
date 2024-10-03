@@ -20,6 +20,7 @@
         }
 
         body {
+            /* background-color: #e6effa; */
             margin: 0;
         }
 
@@ -86,24 +87,25 @@
             color: #65558F; /* Warna ungu untuk teks di tombol */
         }
 
-        .button-container a {
+        .button-container button {
             background-color: #65558F;
             color: white;
+            border: none;
             padding: 10px 20px;
             font-size: 1rem;
+            cursor: pointer;
             border-radius: 25px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
             transition: background-color 0.3s ease;
+            display: flex; /* Gunakan flexbox untuk tata letak */
+            align-items: center; /* Vertikal align icon dan teks */
+            margin-top: 10px; /* Tambahkan jarak atas untuk pemisahan */
         }
 
-        .button-container a i {
+        .button-container button i {
             margin-right: 8px; /* Spasi antara ikon dan teks */
         }
 
-        .button-container a:hover {
+        .button-container button:hover {
             background-color: #8967B3;
         }
 
@@ -159,25 +161,28 @@
         </div>
     </nav>
     <header>
-        <h1>Instalasi Software</h1>
+        <h1>Perakitan dan Instalasi Komputer</h1>
     </header>
 
     <div class="image-container">
-        <img src="../assets/img/instalasi_software.jpg" alt="Foto Instalasi Software">
+        <img src="../assets/img/perakitan_instalasi.jpg" alt="Foto Instalasi Software">
     </div>
 
     <!-- Teks di bawah gambar dengan layout rata kiri -->
     <div class="description">
         <ul>
-            <li>Instalasi software adalah proses menambahkan perangkat lunak ke sistem komputer agar bisa digunakan. Tahapannya meliputi:</li>
+            <li>Perakitan Komputer :</li>
             <br>
-            <p>1. Persiapan: Unduh atau akses berkas instalasi, pastikan perangkat memenuhi persyaratan.</p>
-            <p>2. Memulai Instalasi: Jalankan berkas instalasi dan berikan izin administrator jika diperlukan.</p>
-            <p>3. Wizard Instalasi: Ikuti petunjuk untuk memilih opsi seperti lokasi penyimpanan dan persetujuan lisensi.</p>
-            <p>4. Proses Instalasi: Sistem menyalin berkas dan menambahkan konfigurasi yang diperlukan.</p>
-            <p>5. Selesai: Instalasi selesai, software siap digunakan; kadang perlu restart.</p>
+            <p>a. Persiapan: Mengumpulkan komponen seperti motherboard, prosesor, RAM, hard disk, dan power supply.</p>
+            <p>b. Perakitan: Memasang komponen-komponen tersebut ke dalam casing dan menghubungkan kabel-kabel.</p>
+            <p>c. Pengujian: Memastikan semua komponen terpasang dengan benar dan berfungsi.</p>
             <br>
-            <li>Hasil akhir adalah software yang siap diuji dan digunakan sesuai fungsi.</li>
+            <li>Instalasi Komputer :</li>
+            <br>
+            <p>a. Instalasi Sistem Operasi: Menginstal OS (seperti Windows atau Linux) dari media instalasi.</p>
+            <p>b. Instalasi Driver: Menginstal driver perangkat keras untuk kinerja optimal.</p>
+            <p>c. Instalasi Aplikasi: Menambahkan software yang dibutuhkan, seperti aplikasi dan antivirus.</p>
+            <p>d. Konfigurasi: Menyesuaikan pengaturan sistem seperti jaringan dan akun pengguna.</p>
         </ul>
     </div>
 
@@ -185,15 +190,11 @@
     <div class="button-container">
         <section class="center-button">
             <p>Mulai Chat :</p>
-            <a href="/layanan/chat">
-                <i class="fas fa-comments"></i> Click to Chat
-            </a>
+            <button onclick="window.location.href='/layanan/chat'"><i class="fas fa-comments"></i>Click to Chat</button> <!-- Ikon untuk chat -->
         </section>
         <section class="center-button">
             <p>Ingin Instalasi? Isi formulir di bawah ini :</p>
-            <a href="/formulir/form_instalasi">
-                <i class="fas fa-file-alt"></i> Klik untuk akses
-            </a>
+            <button onclick="window.location.href='/formulir/form_instalasi'"><i class="fas fa-file-alt"></i>Klik untuk akses</button> <!-- Ikon untuk akses -->
         </section>
     </div>
 

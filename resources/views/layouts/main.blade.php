@@ -34,12 +34,12 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <h6 class="dropdown-header">Jasa Instalasi</h6>
                       <a class="dropdown-item" href="/layanan/instalasi_software">Instalasi Software</a>
-                      <a class="dropdown-item" href="/layanan/instalasi-jaringan">Instalasi Jaringan</a>
-                      <a class="dropdown-item" href="/layanan/perakitan-instalasi-komputer">Perakitan & Instalasi Komputer</a>
+                      <a class="dropdown-item" href="/layanan/instalasi_jaringan">Instalasi Jaringan</a>
+                      <a class="dropdown-item" href="/layanan/perakitan_instalasi">Perakitan & Instalasi Komputer</a>
                       <div class="dropdown-divider"></div>
                       <h6 class="dropdown-header">Jasa Servis</h6>
-                      <a class="dropdown-item" href="/layanan/servis-komputer">Komputer</a>
-                      <a class="dropdown-item" href="/layanan/servis-laptop">Notebook / Laptop</a>
+                      <a class="dropdown-item" href="/layanan/servis_komputer">Komputer</a>
+                      <a class="dropdown-item" href="/layanan/servis_laptop">Notebook / Laptop</a>
                     </div>
                   </li>
                   
