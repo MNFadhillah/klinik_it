@@ -75,4 +75,10 @@ class PageController extends Controller
         {
             return view('user/layanan/chat');
         }
+
+        // Method untuk halaman Edit Profil
+        public function editprofil()
+        {
+            return view('user/profil/edit_profil');
+        }
 }

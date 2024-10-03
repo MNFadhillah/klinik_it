@@ -49,3 +49,6 @@ Route::get('formulir/form_instalasi', [PageController::class, 'forminstalasi'])-
 
 // Route untuk halaman Chat
 Route::get('layanan/chat', [PageController::class, 'chat'])->name('chat');
+
+// Route untuk halaman Chat
+Route::get('profil/edit_profil', [PageController::class, 'editprofil'])->name('editprofil');
