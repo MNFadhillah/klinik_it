@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    background-color: #b3d9ff; /* Warna biru muda */
+    text-align: center;
+    padding: 20px 0; /* Tambahkan padding atas dan bawah */
+    width: 100%; /* Pastikan lebar 100% */
+    margin: 0; /* Hilangkan margin */
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #4a2c82;
+    margin: 0; /* Hilangkan margin default */
+}
+
+/* Gambar di tengah */
+.image-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.image-container img {
+    width: 300px;
+}
+
+/* Teks di bawah gambar dengan layout rata kiri */
+.description {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.description p {
+    font-size: 1.1rem;
+    margin-bottom: 20px; /* Tambahkan jarak bawah agar lebih rapi */
+    color: #65558F; /* Warna ungu untuk teks */
+}
+
+.description ul {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    margin-bottom: 20px; /* Tambahkan jarak bawah agar lebih rapi */
+}
+
+.description ul li {
+    margin-bottom: 10px;
+    color: #65558F; /* Warna ungu untuk item daftar */
+}
+
+.description ol {
+    padding-left: 20px; /* Menambahkan padding ke kiri */
+    list-style-position: inside; /* Menempatkan nomor di dalam padding */   
+}
+
+.description ol li {
+    margin-left: 20px; /* Menambahkan margin ke kiri untuk setiap item */
+}
+
+/* Footer tombol rata kanan kiri */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 10px;
+}
+
+.button-container section {
+    text-align: center;
+}
+
+.button-container p {
+    color: #65558F; /* Warna ungu untuk teks di tombol */
+}
+
+.button-container a {
+    background-color: #65558F;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 25px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.button-container a i {
+    margin-right: 8px; /* Spasi antara ikon dan teks */
+}
+
+.button-container a:hover {
+    background-color: #8967B3;
+}
+
+.center-button {
+    display: flex;
+    flex-direction: column; /* Vertikal */
+    align-items: center; /* Pusatkan tombol di tengah */
+    margin-top: 10px; /* Tambahkan jarak atas */
+}
