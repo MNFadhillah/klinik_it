@@ -39,7 +39,14 @@
                         <a class="dropdown-item" href="/layanan/servis_laptop">Notebook / Laptop</a>
                     </div>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="/informasi">Informasi</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Informasi</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/informasi/waktu_service">Waktu Service</a>
+                        <a class="dropdown-item" href="/informasi/biaya_service">Biaya Service</a>
+                        <a class="dropdown-item" href="/informasi/daftar_aplikasi">Daftar Aplikasi</a>
+                    </div>
+                </li>
                 <li class="nav-item"><a class="nav-link" href="/toko">Toko</a></li>
                 <li class="nav-item"><a class="nav-link" href="/tentang">Tentang Kami</a></li>
             </ul>
