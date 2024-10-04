@@ -60,10 +60,10 @@ Route::get('user/cart', [PageController::class, 'cart'])->name('cart');
 Route::get('/checkout', [PageController::class, 'checkout'])->name('checkout');
 
 // Route untuk halaman Waktu Service
-Route::get('informasi/waktu_service', [PageController::class, 'waktuService'])->name('waktuService');
+Route::get('informasi/waktu', [PageController::class, 'waktuService'])->name('waktuService');
 
 // Route untuk halaman Biaya Service
-Route::get('informasi/biaya_service', [PageController::class, 'biayaService'])->name('biayaService');
+Route::get('informasi/biaya', [PageController::class, 'biayaService'])->name('biayaService');
 
 // Route untuk halaman Daftar Aplikasi
 Route::get('informasi/daftar_aplikasi', [PageController::class, 'daftarAplikasi'])->name('daftarAplikasi');

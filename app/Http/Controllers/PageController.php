@@ -91,4 +91,16 @@ class PageController extends Controller
         {
             return view('user/checkout');
         }
+        public function waktuService()
+        {
+            return view('user/informasi/waktu');
+        }
+        public function biayaService()
+        {
+            return view('user/informasi/biaya');
+        }
+        public function daftarAplikasi()
+        {
+            return view('user/informasi/daftar_aplikasi');
+        }
 }

@@ -42,8 +42,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Informasi</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/informasi/waktu_service">Waktu Service</a>
-                        <a class="dropdown-item" href="/informasi/biaya_service">Biaya Service</a>
+                        <a class="dropdown-item" href="/informasi/waktu">Waktu Service</a>
+                        <a class="dropdown-item" href="/informasi/biaya">Biaya Service</a>
                         <a class="dropdown-item" href="/informasi/daftar_aplikasi">Daftar Aplikasi</a>
                     </div>
                 </li>
