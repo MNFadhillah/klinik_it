@@ -50,5 +50,11 @@ Route::get('formulir/form_instalasi', [PageController::class, 'forminstalasi'])-
 // Route untuk halaman Chat
 Route::get('layanan/chat', [PageController::class, 'chat'])->name('chat');
 
-// Route untuk halaman Chat
+// Route untuk halaman Edit Profil
 Route::get('profil/edit_profil', [PageController::class, 'editprofil'])->name('editprofil');
+
+// Route untuk halaman Keranjang
+Route::get('user/cart', [PageController::class, 'cart'])->name('cart');
+
+// Route untuk halaman Checkout
+Route::get('/checkout', [PageController::class, 'checkout'])->name('checkout');
