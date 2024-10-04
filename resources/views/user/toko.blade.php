@@ -7,12 +7,12 @@
             <div class="row justify-content-end">
                 <div class="col-auto">
                     <div class="dropdown d-inline-block">
-                        <button class="btn btn-primary">
+                        <a href="user/cart" class="btn btn-primary">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i> Keranjang <span class="badge text-bg-danger">1</span>
-                        </button>
+                        </a>
                     </div>
                     <div class="d-inline-block">
-                        <a href="#" class="btn btn-success">
+                        <a href="/checkout  " class="btn btn-success">
                             <i class="fa fa-money" aria-hidden="true"></i> Lihat Pesanan
                         </a>
                     </div>
@@ -28,11 +28,17 @@
                     <p>Laptop Xiaomi RedmiBook 15 intel i3-1115G4 Ram 8GB + SSD 256GB W10 - Non Bundling</p>
                     <p><strong>Price: </strong>Rp. 4.919.000</p>
                     <p><strong>Stok: </strong>10</p>
-                    <p class="btn-holder">
-                        <a href="#" class="btn btn-primary btn-block text-center" role="button">
-                            Add to cart
+                    <div class="d-flex justify-content-between">
+                        <a href="/layanan/chat" class="btn btn-secondary" role="button">
+                            <i class="fas fa-comments"></i> Chat
                         </a>
-                    </p>
+                        <a href="#" class="btn btn-warning" role="button">
+                            <i class="fas fa-shopping-cart"></i> Cart
+                        </a>
+                        <a href="/checkout" class="btn btn-success" role="button">
+                            <i class="fas fa-credit-card"></i> Buy
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,11 +51,17 @@
                     <p>Lenovo Thinkpad Laptop X220 Core i5 Ram 4/8GB HDD 320/256GB Murah - X220I I3 GEN2</p>
                     <p><strong>Price: </strong>Rp. 1.390.000</p>
                     <p><strong>Stok: </strong>11</p>
-                    <p class="btn-holder">
-                        <a href="#" class="btn btn-primary btn-block text-center" role="button">
-                            Add to cart
+                    <div class="d-flex justify-content-between">
+                        <a href="/layanan/chat" class="btn btn-secondary" role="button">
+                            <i class="fas fa-comments"></i> Chat
                         </a>
-                    </p>
+                        <a href="#" class="btn btn-warning" role="button">
+                            <i class="fas fa-shopping-cart"></i> Cart
+                        </a>
+                        <a href="/checkout" class="btn btn-success" role="button">
+                            <i class="fas fa-credit-card"></i> Buy
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,13 +72,19 @@
                 <div class="caption">
                     <h4>Apple Macbook Air M1</h4>
                     <p>(RESMI IBOX) Apple MacBook Air M1 Chip 2020 256GB 8GB Garansi resmi - silver</p>
-                    <p><strong>Price: </strong>Rp. 1.244.9000</p>
+                    <p><strong>Price: </strong>Rp. 12.449.000</p>
                     <p><strong>Stok: </strong>7</p>
-                    <p class="btn-holder">
-                        <a href="#" class="btn btn-primary btn-block text-center" role="button">
-                            Add to cart
+                    <div class="d-flex justify-content-between">
+                        <a href="/layanan/chat" class="btn btn-secondary" role="button">
+                            <i class="fas fa-comments"></i> Chat
                         </a>
-                    </p>
+                        <a href="#" class="btn btn-warning" role="button">
+                            <i class="fas fa-shopping-cart"></i> Cart
+                        </a>
+                        <a href="/checkout" class="btn btn-success" role="button">
+                            <i class="fas fa-credit-card"></i> Buy
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -79,11 +97,17 @@
                     <p>ASUS VivoBook 14 M415DAO - RYZEN 3-3250U 8GB SSD 512GB 14" FHD W10 OHS</p>
                     <p><strong>Price: </strong>Rp. 5.999.000</p>
                     <p><strong>Stok: </strong>5</p>
-                    <p class="btn-holder">
-                        <a href="#" class="btn btn-primary btn-block text-center" role="button">
-                            Add to cart
+                    <div class="d-flex justify-content-between">
+                        <a href="/layanan/chat" class="btn btn-secondary" role="button">
+                            <i class="fas fa-comments"></i> Chat
                         </a>
-                    </p>
+                        <a href="#" class="btn btn-warning" role="button">
+                            <i class="fas fa-shopping-cart"></i> Cart
+                        </a>
+                        <a href="/checkout" class="btn btn-success" role="button">
+                            <i class="fas fa-credit-card"></i> Buy
+                        </a>
+                    </div>
                 </div >
             </div>
         </div>

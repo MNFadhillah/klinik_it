@@ -81,4 +81,14 @@ class PageController extends Controller
         {
             return view('user/profil/edit_profil');
         }
+        
+        public function cart()
+        {
+            return view('user/cart');
+        }
+
+        public function checkout()
+        {
+            return view('user/checkout');
+        }
 }
