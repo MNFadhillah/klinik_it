@@ -17,7 +17,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="{{ asset('assets/img/logo.jpg') }}" alt="Logo Klinik IT" height="80">
+            <img src="{{ asset('assets/img/logo.png') }}" alt="Logo Klinik IT" height="80">
             Klinik IT Solution
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,6 +42,11 @@
                 <li class="nav-item"><a class="nav-link" href="/informasi">Informasi</a></li>
                 <li class="nav-item"><a class="nav-link" href="/toko">Toko</a></li>
                 <li class="nav-item"><a class="nav-link" href="/tentang">Tentang Kami</a></li>
+                <div class="kananAtas">
+                    <button class="buttonD">Daftar</button>
+                    <div class="divider"></div>
+                    <button class="buttonD">Masuk</button>
+                </div>
             </ul>
         </div>
     </nav>
@@ -50,23 +55,18 @@
     @yield('content')
 
     <!-- Footer -->
-    <footer class="bg-light text-center text-lg-start mt-auto py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="text-center">Universitas Lambung Mangkurat, Kota Banjarmasin, Kalimantan Selatan. Kode POS 70121.</p>
-                </div>
-                <div class="col-md-6">
-                    <div class="social-media">
-                        <a href="https://instagram.com/klinik_it" target="_blank"><img src="{{ asset('assets/img/instagram.png') }}" alt="Instagram" height="40"></a>
-                        <a href="https://facebook.com/klinik_it" target="_blank"><img src="{{ asset('assets/img/facebook.png') }}" alt="Facebook" height="45"></a>
-                        <a href="https://twitter.com/klinik_it" target="_blank"><img src="{{ asset('assets/img/Twitter.png') }}" alt="Twitter" height="40"></a>
-                    </div>
-                </div>
-            </div>
-            <p class="text-center">Copyright &copy ; 2023 Klinik IT Solution</p>
+    <div class="footer">
+        <img src="{{ asset('assets/img/logo.png') }}" alt="Logo Klinik IT"/>
+        <p>Universitas Lambung Mangkurat</p>
+        <p>Kota Banjarmasin, Kalimantan Selatan.</p>
+        <p>Kode POS 70121.</p>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-instagram"></i> klinik_it</a>
+            <a href="#"><i class="fab fa-twitter"></i> klinik_it</a>
+            <a href="#"><i class="fab fa-facebook"></i> klinik_it</a>
         </div>
-    </footer>
+        <p>KLINIK IT Copyright 2024</p>
+    </div>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
