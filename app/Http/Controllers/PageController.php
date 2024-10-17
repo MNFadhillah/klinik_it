@@ -103,4 +103,19 @@ class PageController extends Controller
         {
             return view('user/informasi/daftar_aplikasi');
         }
+        public function dashboardAdmin()
+        {
+            return view('admin/dashboardAdmin');
+        }
+        public function pesanan()
+        {
+            // Tampilkan daftar pesanan
+            return view('admin/toko/pesanan');
+        }
+    
+        public function stok()
+        {
+            // Tampilkan daftar stok
+            return view('admin/toko/stok');
+        }
 }

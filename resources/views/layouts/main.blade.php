@@ -49,6 +49,7 @@
                 </li>
                 <li class="nav-item"><a class="nav-link" href="/toko">Toko</a></li>
                 <li class="nav-item"><a class="nav-link" href="/tentang">Tentang Kami</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/dashboard">Admin</a></li>
                 <div class="kananAtas">
                     <button class="buttonD">Daftar</button>
                     <div class="divider"></div>

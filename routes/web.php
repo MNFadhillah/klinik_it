@@ -67,3 +67,9 @@ Route::get('informasi/biaya', [PageController::class, 'biayaService'])->name('bi
 
 // Route untuk halaman Daftar Aplikasi
 Route::get('informasi/daftar_aplikasi', [PageController::class, 'daftarAplikasi'])->name('daftarAplikasi');
+
+Route::get('admin/dashboard', [PageController::class, 'dashboardAdmin'])->name('dashboardAdmin');
+
+Route::get('/toko/pesanan', [PageController::class, 'pesanan'])->name('toko.pesanan');
+
+Route::get('/toko/stok', [PageController::class, 'stok'])->name('toko.stok');
