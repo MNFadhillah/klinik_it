@@ -16,7 +16,7 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <img src="{{ asset('assets/img/logo.png') }}" alt="Logo Klinik IT" height="80">
             Klinik IT Solution
         </a>
@@ -49,6 +49,7 @@
                 </li>
                 <li class="nav-item"><a class="nav-link" href="/toko">Toko</a></li>
                 <li class="nav-item"><a class="nav-link" href="/tentang">Tentang Kami</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/dashboard">Admin</a></li>
                 <div class="kananAtas">
                     <button class="buttonD">Daftar</button>
                     <div class="divider"></div>
