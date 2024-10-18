@@ -73,3 +73,11 @@ Route::get('admin/dashboard', [PageController::class, 'dashboardAdmin'])->name('
 Route::get('/toko/pesanan', [PageController::class, 'pesanan'])->name('toko.pesanan');
 
 Route::get('/toko/stok', [PageController::class, 'stok'])->name('toko.stok');
+
+Route::get('servis/instalasi-software', [PageController::class, 'instalasiSoftware'])->name('instalasi-software');
+Route::get('servis/instalasi-jaringan', [PageController::class, 'instalasiJaringan'])->name('instalasi-jaringan');
+Route::get('servis/service-komputer', [PageController::class, 'serviceKomputer'])->name('service-komputer');
+Route::get('servis/service-laptop', [PageController::class, 'serviceLaptop'])->name('service-laptop');
+Route::get('servis/perakitan-instalasi-komputer', [PageController::class, 'perakitanInstalasiKomputer'])->name('perakitan-instalasi-komputer');
+
+Route::get('servis/daftar-chat', [PageController::class, 'daftarChat'])->name('daftar-chat');

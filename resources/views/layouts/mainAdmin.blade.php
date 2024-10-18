@@ -45,11 +45,50 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="#">
+            <li class="has-submenu">
+                <a href="#layananSubmenu" data-bs-toggle="collapse" aria-expanded="false">
                     <i class="fas fa-tools"></i>
-                    Service
+                    Layanan
+                    <i class="fas fa-chevron-down arrow"></i>
                 </a>
+                <ul class="collapse submenu" id="layananSubmenu">
+                    <li>
+                        <a href="/servis/instalasi-software">
+                            <i class="fas fa-download"></i>
+                            Instalasi Software
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/servis/instalasi-jaringan">
+                            <i class="fas fa-network-wired"></i>
+                            Instalasi Jaringan
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/servis/service-komputer">
+                            <i class="fas fa-desktop"></i>
+                            Service Komputer
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/servis/service-laptop">
+                            <i class="fas fa-laptop"></i>
+                            Service Notebook / Laptop
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/servis/perakitan-instalasi-komputer">
+                            <i class="fas fa-microchip"></i>
+                            Perakitan dan Instalasi Komputer
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/servis/daftar-chat">
+                            <i class="fas fa-comment"></i>
+                            Daftar Chat
+                        </a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </div>
@@ -71,42 +110,11 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <script>
         mix.js('resources/js/app.js', 'public/js')
             .sass('resources/sass/app.scss', 'public/css')
             .css('resources/css/admin.css', 'public/css');
     </script>
-    {{-- <script>
-        // Chart 1: Persentase User
-        const ctx1 = document.getElementById('userPercentageChart').getContext('2d');
-        const userPercentageChart = new Chart(ctx1, {
-            type: 'pie',
-            data: {
-                labels: ['User 1', 'User 2', 'User 3', 'User 4'],
-                datasets: [{
-                    label: 'Persentase User',
-                    data: [40, 30, 20, 10],
-                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
-                    hoverOffset: 4
-                }]
-            },
-        });
-
-        // Chart 2: Persentase User Melakukan Interaksi
-        const ctx2 = document.getElementById('interactionChart').getContext('2d');
-        const interactionChart = new Chart(ctx2, {
-            type: 'pie',
-            data: {
-                labels: ['Interaksi 1', 'Interaksi 2', 'Interaksi 3', 'Interaksi 4'],
-                datasets: [{
-                    label: 'Persentase Interaksi',
-                    data: [50, 25, 15, 10],
-                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
-                    hoverOffset: 4
-                }]
-            },
-        });
-    </script> --}}
 </body>
 </html>
