@@ -130,7 +130,7 @@
     <div class="header">
         <div class="header-left">
             <a class="navbar-brand" href="#">
-                <img src="{{ asset('assets/img/logo.jpg') }}" alt="Logo Klinik IT" height="80"> KERANJANG BELANJA
+                <img src="{{ asset('assets/img/logo.png') }}" alt="Logo Klinik IT" height="80"> KERANJANG BELANJA
             </a>
         </div>
         <div class="header-icons">
