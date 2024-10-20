@@ -141,7 +141,7 @@
 
         <div class="form-box">
             <div class="logo">
-                <img src="../assets/img/logo.jpg" alt="Klinik IT Logo" />
+                <img src="../assets/img/logo.png" alt="Klinik IT Logo" />
             </div>
             <h2>Formulir Instalasi</h2>
             <div class="logo-line"></div> <!-- Garis di bawah judul berwarna putih -->

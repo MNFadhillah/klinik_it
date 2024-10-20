@@ -82,7 +82,7 @@
     <div class="header">
         <div class="header-left">
             <a class="navbar-brand" href="#">
-                <img src="{{ asset('assets/img/logo.jpg') }}" alt="Logo Klinik IT" height="80"> CHECKOUT
+                <img src="{{ asset('assets/img/logo.png') }}" alt="Logo Klinik IT" height="80"> CHECKOUT
             </a>
         </div>
     </div>

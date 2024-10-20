@@ -110,7 +110,7 @@
      <!-- Navbar -->
      <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="../assets/img/logo.jpg" alt="Logo Klinik IT" height="80">
+            <img src="../assets/img/logo.png" alt="Logo Klinik IT" height="80">
             Klinik IT Solution
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -145,6 +145,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/tentang">Tentang Kami</a>
                 </li>
+                <div class="kananAtas">
+                    <button class="buttonD">Daftar</button>
+                    <div class="divider"></div>
+                    <button class="buttonD">Masuk</button>
+                </div>
             </ul>
         </div>
     </nav>
