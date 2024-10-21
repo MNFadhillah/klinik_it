@@ -221,7 +221,7 @@
                 <div class="total-price-summary">
                     Total (3): <strong>Rp. 18.758.000</strong>
                 </div>
-                <a href="/checkout" class="checkout-btn">Chekout</a>
+                <a href="../toko/checkout" class="checkout-btn">Chekout</a>
             </div>
         </div>
     </div>
