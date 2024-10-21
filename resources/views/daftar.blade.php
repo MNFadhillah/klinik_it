@@ -192,8 +192,8 @@
             <div class="horizontal-separator"></div>
             <p>Gunakan Akun Facebook / Google Kamu untuk Daftar:</p>
             <div class="social-register">
-                <button>Daftar dengan Facebook</button>
-                <button>Daftar dengan Google</button>
+                <button><i class="fab fa-facebook-f"></i> Masuk dengan Facebook</button>
+                <button><i class="fab fa-google"></i> Masuk dengan Google</button>
             </div>
         </div>
     </div>
