@@ -30,6 +30,11 @@ Route::get('/informasi/waktu', [InformasiController::class, 'waktuService'])->na
 Route::get('/informasi/biaya', [InformasiController::class, 'biayaService'])->name('biayaService');
 Route::get('/informasi/daftar_aplikasi', [InformasiController::class, 'daftarAplikasi'])->name('daftarAplikasi');
 
+// Route untuk halaman Toturial Layar
+Route::get('/informasi/toturial_layar', [InformasiController::class, 'toturialLayar'])->name('toturialLayar');
+// Route untuk halaman Toturial Instalasi OS
+Route::get('/informasi/toturial_InstalasiOS', [InformasiController::class, 'toturialInstalasiOS'])->name('toturialInstalasiOS');
+
 // // Halaman Utama
 // Route::get('/', [PageController::class, 'home'])->name('home');
 
