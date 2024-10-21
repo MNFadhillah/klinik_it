@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\LayananController;
@@ -11,6 +13,12 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminTokoController;
 use App\Http\Controllers\AdminServisController;
+
+// Halaman Login
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+
+// Halaman daftar
+Route::get('/daftar', [DaftarController::class, 'daftar'])->name('daftar');
 
 // Halaman Utama
 Route::get('/', [HomeController::class, 'home'])->name('home');

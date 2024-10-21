@@ -51,9 +51,9 @@
                 <li class="nav-item"><a class="nav-link" href="/tentang">Tentang Kami</a></li>
                 <li class="nav-item"><a class="nav-link" href="/admin/dashboard">Admin</a></li>
                 <div class="kananAtas">
-                    <button class="buttonD">Daftar</button>
+                    <a href="/daftar"><button class="buttonD">Daftar</button></a>
                     <div class="divider"></div>
-                    <button class="buttonD">Masuk</button>
+                    <a href="/login"><button class="buttonD">Masuk</button></a>
                 </div>
             </ul>
         </div>
