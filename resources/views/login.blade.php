@@ -189,8 +189,8 @@
             <div class="horizontal-separator"></div>
             <p>Gunakan Akun Facebook / Google Kamu untuk Masuk:</p>
             <div class="social-login">
-                <button>Masuk dengan Facebook</button>
-                <button>Masuk dengan Google</button>
+                <button><i class="fab fa-facebook-f"></i> Masuk dengan Facebook</button>
+                <button><i class="fab fa-google"></i> Masuk dengan Google</button>
             </div>
         </div>
     </div>
