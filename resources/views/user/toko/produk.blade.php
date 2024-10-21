@@ -7,12 +7,12 @@
             <div class="row justify-content-end">
                 <div class="col-auto">
                     <div class="dropdown d-inline-block">
-                        <a href="user/cart" class="btn btn-primary">
+                        <a href="toko/cart" class="btn btn-primary">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i> Keranjang <span class="badge text-bg-danger">1</span>
                         </a>
                     </div>
                     <div class="d-inline-block">
-                        <a href="/checkout  " class="btn btn-success">
+                        <a href="toko/checkout" class="btn btn-success">
                             <i class="fa fa-money" aria-hidden="true"></i> Lihat Pesanan
                         </a>
                     </div>

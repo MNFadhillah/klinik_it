@@ -11,10 +11,10 @@ class TokoController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function toko()
+    public function produk()
     {
         // Logika untuk mengambil data produk, jika diperlukan
-        return view('user.toko');
+        return view('user.toko.produk');
     }
 
     /**
@@ -24,8 +24,7 @@ class TokoController extends Controller
      */
     public function cart()
     {
-        // Logika untuk mengambil data keranjang belanja
-        return view('user.cart');
+        return view('user.toko.cart');
     }
 
     /**
@@ -36,7 +35,7 @@ class TokoController extends Controller
     public function checkout()
     {
         // Logika untuk memproses checkout
-        return view('user.checkout');
+        return view('user.toko.checkout');
     }
 
     /**
