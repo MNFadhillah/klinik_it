@@ -46,5 +46,24 @@ class InformasiController extends Controller
         return view('user.informasi.daftar_aplikasi');
     }
 
+        /**
+     * Menampilkan halaman Toturial Layar.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function toturialLayar()
+    {
+        return view('user.informasi.toturial_layar');
+    }
+
+            /**
+     * Menampilkan halaman Toturial Instalasi OS.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function toturialInstalasiOS()
+    {
+        return view('user.informasi.tutorial_InstalasiOS');
+    }
     
 }

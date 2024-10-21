@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\LayananController;
@@ -12,6 +14,12 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminTokoController;
 use App\Http\Controllers\AdminServisController;
 
+// Halaman Login
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+
+// Halaman daftar
+Route::get('/daftar', [DaftarController::class, 'daftar'])->name('daftar');
+
 // Halaman Utama
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/tentang', [HomeController::class, 'tentang'])->name('tentang');
@@ -21,6 +29,11 @@ Route::get('/informasi', [InformasiController::class, 'informasi'])->name('infor
 Route::get('/informasi/waktu', [InformasiController::class, 'waktuService'])->name('waktuService');
 Route::get('/informasi/biaya', [InformasiController::class, 'biayaService'])->name('biayaService');
 Route::get('/informasi/daftar_aplikasi', [InformasiController::class, 'daftarAplikasi'])->name('daftarAplikasi');
+
+// Route untuk halaman Toturial Layar
+Route::get('/informasi/toturial_layar', [InformasiController::class, 'toturialLayar'])->name('toturialLayar');
+// Route untuk halaman Toturial Instalasi OS
+Route::get('/informasi/toturial_InstalasiOS', [InformasiController::class, 'toturialInstalasiOS'])->name('toturialInstalasiOS');
 
 // // Halaman Utama
 // Route::get('/', [PageController::class, 'home'])->name('home');

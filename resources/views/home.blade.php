@@ -48,7 +48,9 @@
         color: #3A0CA3;
         margin-top: 50px;
         text-align: center;
+        font-weight: bold;
         }
+    
     .services, .information {
         margin: 50px 0;
         text-align: center;
@@ -103,6 +105,8 @@
          <img src="{{ asset('assets/img/BGIT.png') }}" alt="BGIT">
         </div>
     </div>
+</br>
+</br>
     <h1>LAYANAN</h1>
     <div class="services">
         <div class="service-item">
