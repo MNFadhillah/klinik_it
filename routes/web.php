@@ -28,10 +28,10 @@ Route::prefix('informasi')->name('informasi.')->group(function () {
     Route::get('/waktu', [InformasiController::class, 'waktuService'])->name('waktuService');
     Route::get('/biaya', [InformasiController::class, 'biayaService'])->name('biayaService');
     Route::get('/daftar_aplikasi', [InformasiController::class, 'daftarAplikasi'])->name('daftarAplikasi');
-    Route::get('/toturial_layar', [InformasiController::class, 'toturialLayar'])->name('toturialLayar');
-    Route::get('/toturial_InstalasiOS', [InformasiController::class, 'toturialInstalasiOS'])->name('toturialInstalasiOS');
-    Route::get('/toturial_pemulihan', [InformasiController::class, 'tutorialPemulihan'])->name('tutorialPemulihan');
-    Route::get('/toturial_perbaikanKoneksi', [InformasiController::class, 'tutorialperbaikankoneksi'])->name('tutorialperbaikankoneksi');
+    Route::get('/tutorial_layar', [InformasiController::class, 'tutorialLayar'])->name('tutorialLayar');
+    Route::get('/tutorial_InstalasiOS', [InformasiController::class, 'tutorialInstalasiOS'])->name('tutorialInstalasiOS');
+    Route::get('/tutorial_pemulihan', [InformasiController::class, 'tutorialPemulihan'])->name('tutorialPemulihan');
+    Route::get('/tutorial_perbaikanKoneksi', [InformasiController::class, 'tutorialperbaikankoneksi'])->name('tutorialperbaikankoneksi');
 
 });
 

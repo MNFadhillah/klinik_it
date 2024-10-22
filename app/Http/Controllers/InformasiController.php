@@ -47,21 +47,21 @@ class InformasiController extends Controller
     }
 
         /**
-     * Menampilkan halaman Toturial Layar.
+     * Menampilkan halaman tutorial Layar.
      *
      * @return \Illuminate\View\View
      */
-    public function toturialLayar()
+    public function tutorialLayar()
     {
-        return view('user.informasi.toturial_layar');
+        return view('user.informasi.tutorial_layar');
     }
 
             /**
-     * Menampilkan halaman Toturial Instalasi OS.
+     * Menampilkan halaman tutorial Instalasi OS.
      *
      * @return \Illuminate\View\View
      */
-    public function toturialInstalasiOS()
+    public function tutorialInstalasiOS()
     {
         return view('user.informasi.tutorial_InstalasiOS');
     }
@@ -69,4 +69,7 @@ class InformasiController extends Controller
     {
         return view('user.informasi.tutorial_pemulihan');
     }   
+    public function tutorialperbaikankoneksi(){
+        return view('user.informasi.tutorial_perbaikanKoneksi');
+    }
 }
