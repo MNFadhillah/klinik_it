@@ -65,5 +65,13 @@ class InformasiController extends Controller
     {
         return view('user.informasi.tutorial_InstalasiOS');
     }
+    public function tutorialPemulihan()
+    {
+        return view('user.informasi.tutorial_pemulihan');
+    }
     
+    public function tutorialperbaikankoneksi()
+    {
+        return view('user.informasi.tutorial_perbaikanKoneksi');
+    }
 }

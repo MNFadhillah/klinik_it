@@ -27,9 +27,12 @@ Route::prefix('informasi')->name('informasi.')->group(function () {
     Route::get('/', [InformasiController::class, 'informasi'])->name('index');
     Route::get('/waktu', [InformasiController::class, 'waktuService'])->name('waktuService');
     Route::get('/biaya', [InformasiController::class, 'biayaService'])->name('biayaService');
-    Route::get('/daftar-aplikasi', [InformasiController::class, 'daftarAplikasi'])->name('daftarAplikasi');
-    Route::get('/toturial-layar', [InformasiController::class, 'toturialLayar'])->name('toturialLayar');
-    Route::get('/toturial-instalasi-os', [InformasiController::class, 'toturialInstalasiOS'])->name('toturialInstalasiOS');
+    Route::get('/daftar_aplikasi', [InformasiController::class, 'daftarAplikasi'])->name('daftarAplikasi');
+    Route::get('/toturial_layar', [InformasiController::class, 'toturialLayar'])->name('toturialLayar');
+    Route::get('/toturial_InstalasiOS', [InformasiController::class, 'toturialInstalasiOS'])->name('toturialInstalasiOS');
+    Route::get('/toturial_pemulihan', [InformasiController::class, 'tutorialPemulihan'])->name('tutorialPemulihan');
+    Route::get('/toturial_perbaikanKoneksi', [InformasiController::class, 'tutorialperbaikankoneksi'])->name('tutorialperbaikankoneksi');
+
 });
 
 // Service Routes
