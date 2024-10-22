@@ -79,17 +79,6 @@
             font-size: 18px;
             color: #4e31aa;
         }
-        .checkout-btn {
-            background-color: #4e31aa;
-            border: none;
-            padding: 10px 30px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-        .checkout-btn:hover {
-            background-color: #3a1078;
-            transform: translateY(-2px);
-        }
         .back-btn {
             color: #4e31aa;
             transition: all 0.3s ease;
@@ -123,11 +112,19 @@
             background-color: #3a1078;
             transform: translateY(-2px);
             box-shadow: 0 6px 8px rgba(58, 16, 120, 0.4);
-            text-decoration: none
+            text-decoration: none;
+            color: white
+        }
+        .button-pesanan {
+            text-align: center;
+            margin-top: 20px;
         }
 
+        
+        
         .btn-text {
             margin-right: 10px;
+            color: white
         }
 
         .btn-icon {

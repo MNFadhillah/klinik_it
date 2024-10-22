@@ -85,6 +85,28 @@
             color: #3a1078;
             text-decoration: none;
         }
+        .pesanan-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            background-color: #4e31aa;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(78, 49, 170, 0.3);
+        }
+
+        .pesanan-btn:hover {
+            background-color: #3a1078;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(58, 16, 120, 0.4);
+            text-decoration: none;
+            color: white
+        }
     </style>
 </head>
 <body>
@@ -158,7 +180,12 @@
         </table>
 
         <!-- Tombol Buat Pesanan -->
-        <button class="checkout-btn" onclick="location.href='#'">Buat Pesanan</button>
+        <div class="button-pesanan">
+            <a href="#" class="pesanan-btn">
+                <span class="btn-text">Buat Pesanan</span>
+                <span class="btn-icon">
+            </a>
+        </div>
     </div>
 </body>
 </html>
