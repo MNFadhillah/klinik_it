@@ -46,11 +46,11 @@
                         <a class="dropdown-item" href="/informasi/biaya">Biaya Service</a>
                         <a class="dropdown-item" href="/informasi/daftar_aplikasi">Daftar Aplikasi</a>
                         <div class="dropdown-divider"></div>
-                        <h6 class="dropdown-header">Toturial Perbaikan</h6>
-                        <a class="dropdown-item" href="/informasi/toturial_layar">Ganti Layar Laptop</a>
-                        <a class="dropdown-item" href="/informasi/toturial_InstalasiOS">Instalasi OS</a>
-                        <a class="dropdown-item" href="/informasi/toturial_pemulihan">Pemulihan Data</a>
-                        <a class="dropdown-item" href="/informasi/toturial_perbaikanKoneksi">Perbaikan Koneksi Jaringan</a>
+                        <h6 class="dropdown-header">tutorial Perbaikan</h6>
+                        <a class="dropdown-item" href="/informasi/tutorial_layar">Ganti Layar Laptop</a>
+                        <a class="dropdown-item" href="/informasi/tutorial_InstalasiOS">Instalasi OS</a>
+                        <a class="dropdown-item" href="/informasi/tutorial_pemulihan">Pemulihan Data</a>
+                        <a class="dropdown-item" href="/informasi/tutorial_perbaikanKoneksi">Perbaikan Koneksi Jaringan</a>
                     </div>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="/toko">Toko</a></li>
