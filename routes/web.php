@@ -45,6 +45,7 @@ Route::prefix('layanan')->name('layanan.')->group(function () {
     Route::get('/chat', [LayananController::class, 'chat'])->name('chat');
 });
 
+
 // Store Routes
 Route::prefix('toko')->name('toko')->group(function () {
     Route::get('/', [TokoController::class, 'produk'])->name('index');
