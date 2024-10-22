@@ -34,6 +34,10 @@ Route::get('/informasi/daftar_aplikasi', [InformasiController::class, 'daftarApl
 Route::get('/informasi/toturial_layar', [InformasiController::class, 'toturialLayar'])->name('toturialLayar');
 // Route untuk halaman Toturial Instalasi OS
 Route::get('/informasi/toturial_InstalasiOS', [InformasiController::class, 'toturialInstalasiOS'])->name('toturialInstalasiOS');
+// Route untuk halaman Toturial Pemulihan Data
+Route::get('/informasi/toturial_pemulihan', [InformasiController::class, 'tutorialPemulihan'])->name('tutorialPemulihan');
+// Route untuk halaman Toturial Perbaikan Koneksi Jaringan
+Route::get('/informasi/toturial_perbaikanKoneksi', [InformasiController::class, 'tutorialperbaikankoneksi'])->name('tutorialperbaikankoneksi');
 
 // // Halaman Utama
 // Route::get('/', [PageController::class, 'home'])->name('home');

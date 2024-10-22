@@ -114,4 +114,4 @@
         <!-- Add more products as needed -->
     </div>
 </div>
-@endsection 
+@endsection
