@@ -68,11 +68,8 @@ class InformasiController extends Controller
     public function tutorialPemulihan()
     {
         return view('user.informasi.tutorial_pemulihan');
-    }
-    
-    public function tutorialperbaikankoneksi()
-    {
+    }   
+    public function tutorialperbaikankoneksi(){
         return view('user.informasi.tutorial_perbaikanKoneksi');
     }
-
 }
