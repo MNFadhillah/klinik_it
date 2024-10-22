@@ -69,18 +69,33 @@
     @yield('content')
 
     <!-- Footer -->
-    <div class="footer">
-        <img src="{{ asset('assets/img/logo.png') }}" alt="Logo Klinik IT"/>
-        <p>Universitas Lambung Mangkurat</p>
-        <p>Kota Banjarmasin, Kalimantan Selatan.</p>
-        <p>Kode POS 70121.</p>
-        <div class="social-media">
-            <a href="#"><i class="fab fa-instagram"></i> klinik_it</a>
-            <a href="#"><i class="fab fa-twitter"></i> klinik_it</a>
-            <a href="#"><i class="fab fa-facebook"></i> klinik_it</a>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <img src="{{ asset('assets/img/logo.png') }}" alt="Logo Klinik IT" class="footer-logo"/>
+                <h5 class="mt-3">KLINIK IT</h5>
+                <p>Solusi IT Terpercaya</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5>Hubungi Kami</h5>
+                <p><i class="fas fa-map-marker-alt"></i> Universitas Lambung Mangkurat</p>
+                <p><i class="fas fa-city"></i> Kota Banjarmasin, Kalimantan Selatan</p>
+                <p><i class="fas fa-envelope"></i> Kode POS 70121</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Ikuti Kami</h5>
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
         </div>
-        <p>KLINIK IT Copyright 2024</p>
+        <hr class="footer-divider">
+        <p class="copyright">KLINIK IT Copyright 2024</p>
     </div>
+</footer>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
