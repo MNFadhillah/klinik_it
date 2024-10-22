@@ -38,4 +38,8 @@
             <a href="/formulir/form_servis"><i class="fas fa-file-alt"></i>Klik untuk akses</a>
         </section>
     </div>
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> a2022fcc666e7080c97c11856d56085b68553e41

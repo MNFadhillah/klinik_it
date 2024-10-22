@@ -3,99 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Checkout - Klinik IT Solution')</title>
-    <!-- Bootstrap CSS -->
+    <title>Checkout - Klinik IT Solution</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <!-- Favicon -->
-    <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        .header {
-            background-color: #ccc;
-            padding: 20px;
-            text-align: left;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header img {
-            height: 50px;
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 24px;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
             color: #333;
         }
-
-        .main-content {
-            padding: 20px;
+        .header {
+            background-color: #3a1078;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
         }
-
+        .header img {
+            height: 60px;
+        }
+        .header h1 {
+            color: #fff;
+            font-size: 24px;
+            margin-left: 15px;
+        }
+        .main-content {
+            padding: 30px 0;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 0 20px rgba(0,0,0,.08);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .card-header {
+            background-color: #4e31aa;
+            color: #fff;
+            font-weight: bold;
+        }
+        .user-location {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,.08);
+            margin-bottom: 20px;
+        }
         .product-image {
-            width: 100px;
-            height: auto;
+            width: 80px;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+        .product-image:hover {
+            transform: scale(1.1);
         }
         .summary-table th, .summary-table td {
             vertical-align: middle;
         }
         .total-price-summary {
+            font-size: 18px;
+            color: #4e31aa;
             font-weight: bold;
-            color: #6a1b9a;
         }
-
         .checkout-btn {
-            background-color: #6a1b9a;
+            background-color: #4e31aa;
             color: white;
-            padding: 10px 20px;
+            padding: 10px 30px;
             border: none;
             cursor: pointer;
             border-radius: 5px;
             font-size: 16px;
+            transition: all 0.3s ease;
         }
-
         .checkout-btn:hover {
-            background-color: #4a148c;
+            background-color: #3a1078;
+            transform: translateY(-2px);
         }
-        .user-location {
-            background-color: #e0e0e0;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
+        .back-btn {
+            color: #4e31aa;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            color: #3a1078;
+            text-decoration: none;
+        }
+        .pesanan-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            background-color: #4e31aa;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(78, 49, 170, 0.3);
         }
 
+        .pesanan-btn:hover {
+            background-color: #3a1078;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(58, 16, 120, 0.4);
+            text-decoration: none;
+            color: white
+        }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <div class="header">
-        <div class="header-left">
-            <a class="navbar-brand" href="#">
-                <img src="{{ asset('assets/img/logo.png') }}" alt="Logo Klinik IT" height="80"> CHECKOUT
-            </a>
+        <div class="container">
+            <div class="d-flex align-items-center">
+                <img src="{{ asset('assets/img/logo.png') }}" alt="Logo Klinik IT">
+                <h1 class="ml-3">Checkout</h1>
+            </div>
         </div>
     </div>
 
-    <!-- Main Content -->
     <div class="main-content container">
-        <!-- Tombol Kembali ke Halaman Toko -->
         <div class="mb-3">
-            <a href="/toko" class="btn btn-secondary">
+            <a href="/toko" class="back-btn">
                 <i class="fas fa-arrow-left"></i> Kembali
             </a>
         </div>
-        <!-- Informasi Lokasi Pengguna -->
+
+         <!-- Informasi Lokasi Pengguna -->
         <div class="user-location">
             <h4>Informasi Pengiriman</h4>
             <p><strong>Nama Penerima:</strong> Muhammad Nur Fadhillah</p>
@@ -104,6 +135,7 @@
             <p><strong>Provinsi:</strong> Kalimantan Selatan</p>
             <p><strong>Kode Pos:</strong> 70123</p>
         </div>
+
         <!-- Ringkasan Pesanan -->
         <h2>Ringkasan Pesanan</h2>
         <table class="table summary-table">
@@ -141,14 +173,19 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="4" class ="text-right">Total:</td>
+                    <td colspan="4" class="text-right">Total:</td>
                     <td class="total-price-summary">Rp. 18.758.000</td>
                 </tr>
             </tfoot>
         </table>
-        <!-- Tombol Buat Pesanan -->
-        <button class="checkout-btn" onclick="location.href='#'">Buat Pesanan</button>
 
+        <!-- Tombol Buat Pesanan -->
+        <div class="button-pesanan">
+            <a href="#" class="pesanan-btn">
+                <span class="btn-text">Buat Pesanan</span>
+                <span class="btn-icon">
+            </a>
+        </div>
     </div>
 </body>
 </html>
