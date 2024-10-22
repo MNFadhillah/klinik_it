@@ -34,6 +34,10 @@ Route::get('/informasi/daftar_aplikasi', [InformasiController::class, 'daftarApl
 Route::get('/informasi/toturial_layar', [InformasiController::class, 'toturialLayar'])->name('toturialLayar');
 // Route untuk halaman Toturial Instalasi OS
 Route::get('/informasi/toturial_InstalasiOS', [InformasiController::class, 'toturialInstalasiOS'])->name('toturialInstalasiOS');
+// Route untuk halaman Toturial Upgrade Ram
+Route::get('/informasi/toturial_ram', [InformasiController::class, 'toturialRam'])->name('toturialRam');
+// Route untuk halaman Toturial Upgrade Kipas
+Route::get('/informasi/toturial_kipas', [InformasiController::class, 'toturialKipas'])->name('toturialKipas');
 
 // // Halaman Utama
 // Route::get('/', [PageController::class, 'home'])->name('home');
