@@ -49,6 +49,8 @@
                         <h6 class="dropdown-header">Toturial Perbaikan</h6>
                         <a class="dropdown-item" href="/informasi/toturial_layar">Ganti Layar Laptop</a>
                         <a class="dropdown-item" href="/informasi/toturial_InstalasiOS">Instalasi OS</a>
+                        <a class="dropdown-item" href="/informasi/toturial_pemulihan">Pemulihan Data</a>
+                        <a class="dropdown-item" href="/informasi/toturial_perbaikanKoneksi">Perbaikan Koneksi Jaringan</a>
                     </div>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="/toko">Toko</a></li>
