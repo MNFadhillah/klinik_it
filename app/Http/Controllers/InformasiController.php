@@ -65,5 +65,25 @@ class InformasiController extends Controller
     {
         return view('user.informasi.tutorial_InstalasiOS');
     }
+
+                /**
+     * Menampilkan halaman Toturial Upgrade Ram.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function toturialRam()
+    {
+        return view('user.informasi.toturial_ram');
+    }
+
+                    /**
+     * Menampilkan halaman Toturial Upgrade Ram.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function toturialKipas()
+    {
+        return view('user.informasi.toturial_kipas');
+    }
     
 }
