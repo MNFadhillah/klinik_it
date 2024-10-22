@@ -24,20 +24,17 @@ Route::get('/daftar', [DaftarController::class, 'daftar'])->name('daftar');
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/tentang', [HomeController::class, 'tentang'])->name('tentang');
 
-// Halaman Utama
-Route::get('/informasi', [InformasiController::class, 'informasi'])->name('informasi');
-Route::get('/informasi/waktu', [InformasiController::class, 'waktuService'])->name('waktuService');
-Route::get('/informasi/biaya', [InformasiController::class, 'biayaService'])->name('biayaService');
-Route::get('/informasi/daftar_aplikasi', [InformasiController::class, 'daftarAplikasi'])->name('daftarAplikasi');
-
-// Route untuk halaman Toturial Layar
-Route::get('/informasi/toturial_layar', [InformasiController::class, 'toturialLayar'])->name('toturialLayar');
-// Route untuk halaman Toturial Instalasi OS
-Route::get('/informasi/toturial_InstalasiOS', [InformasiController::class, 'toturialInstalasiOS'])->name('toturialInstalasiOS');
-// Route untuk halaman Toturial Upgrade Ram
-Route::get('/informasi/toturial_ram', [InformasiController::class, 'toturialRam'])->name('toturialRam');
-// Route untuk halaman Toturial Upgrade Kipas
-Route::get('/informasi/toturial_kipas', [InformasiController::class, 'toturialKipas'])->name('toturialKipas');
+// Information Routes
+Route::prefix('informasi')->name('informasi.')->group(function () {
+    Route::get('/', [InformasiController::class, 'informasi'])->name('index');
+    Route::get('/waktu', [InformasiController::class, 'waktuService'])->name('waktuService');
+    Route::get('/biaya', [InformasiController::class, 'biayaService'])->name('biayaService');
+    Route::get('/daftar-aplikasi', [InformasiController::class, 'daftarAplikasi'])->name('daftarAplikasi');
+    Route::get('/toturial-layar', [InformasiController::class, 'toturialLayar'])->name('toturialLayar');
+    Route::get('/toturial-instalasi-os', [InformasiController::class, 'toturialInstalasiOS'])->name('toturialInstalasiOS');
+    Route::get('/informasi/toturial_ram', [InformasiController::class, 'toturialRam'])->name('toturialRam');
+    Route::get('/informasi/toturial_kipas', [InformasiController::class, 'toturialKipas'])->name('toturialKipas');
+});
 
 // // Halaman Utama
 // Route::get('/', [PageController::class, 'home'])->name('home');
