@@ -40,10 +40,9 @@
             <li>Pasang kembali baterai dan nyalakan laptop untuk menguji layar baru.</li>
             <img src="{{ asset('assets/img/layar_step5.jpeg') }}" alt="Nyala" width="300">
         </ol>
-    </div>
-
-    <div class="warning">
-        <p><strong>Peringatan:</strong> Jika Anda tidak yakin dengan prosedur ini, sebaiknya bawa laptop Anda ke teknisi profesional untuk menghindari kerusakan lebih lanjut.</p>
+        <div class="warning">
+            <p style="color: red;"><strong>Peringatan:</strong> Jika Anda tidak yakin dengan prosedur ini, sebaiknya bawa laptop Anda ke teknisi profesional untuk menghindari kerusakan lebih lanjut.</p>
+        </div>
     </div>
 
     <div class="button-container">

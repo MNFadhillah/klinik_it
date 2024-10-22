@@ -77,10 +77,9 @@
             <li>Windows Siap digunakan .</li>
             <img src="{{ asset('assets/img/os_step10.jpeg') }}" alt="Selesai" width="300">
         </ol>
-    </div>
-
-    <div class="warning">
-        <p><strong>Peringatan:</strong> Instalasi OS akan menghapus semua data di partisi yang dipilih. Pastikan untuk mem-backup data penting sebelum memulai proses ini.</p>
+        <div class="warning">
+            <p style="color: red;"><strong>Peringatan:</strong> Instalasi OS akan menghapus semua data di partisi yang dipilih. Pastikan untuk mem-backup data penting sebelum memulai proses ini.</p>
+        </div>
     </div>
 
     <div class="button-container">
