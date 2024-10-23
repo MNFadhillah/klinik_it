@@ -46,7 +46,6 @@
                         <a class="dropdown-item" href="/informasi/biaya">Biaya Service</a>
                         <a class="dropdown-item" href="/informasi/daftar_aplikasi">Daftar Aplikasi</a>
                         <div class="dropdown-divider"></div>
-<<<<<<< HEAD
                         <h6 class="dropdown-header">Toturial Perbaikan</h6>
                         <a class="dropdown-item" href="/informasi/tutorial_layar">Ganti Layar Laptop</a>
                         <a class="dropdown-item" href="/informasi/tutorial_InstalasiOS">Instalasi OS</a>
@@ -54,13 +53,6 @@
                         <a class="dropdown-item" href="/informasi/tutorial_perbaikanKoneksi">Perbaikan Koneksi Jaringan</a> 
                         <a class="dropdown-item" href="/informasi/tutorial_ram">Upgrade Ram</a>
                         <a class="dropdown-item" href="/informasi/tutorial_kipas">Membersihkan Kipas</a>                       
-=======
-                        <h6 class="dropdown-header">tutorial Perbaikan</h6>
-                        <a class="dropdown-item" href="/informasi/tutorial_layar">Ganti Layar Laptop</a>
-                        <a class="dropdown-item" href="/informasi/tutorial_InstalasiOS">Instalasi OS</a>
-                        <a class="dropdown-item" href="/informasi/tutorial_pemulihan">Pemulihan Data</a>
-                        <a class="dropdown-item" href="/informasi/tutorial_perbaikanKoneksi">Perbaikan Koneksi Jaringan</a>
->>>>>>> 5bead0eb6c584ea257abe832ddb322e21994dada
                     </div>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="/toko">Toko</a></li>
