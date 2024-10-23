@@ -88,6 +88,25 @@
             margin-top: 20px;
         }
 
+        .card {
+            height: 100%;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-title {
+            color: #3A0CA3;
+        }
+        .btn-primary {
+            background-color: #3A0CA3;
+            border-color: #3A0CA3;
+        }
+        .btn-primary:hover {
+            background-color: #2A0A73;
+            border-color: #2A0A73;
+        }
+
     </style>
     <div class="header">
         <div class="text">
@@ -107,40 +126,96 @@
     </div>
 </br>
 </br>
-    <h1>LAYANAN</h1>
-    <div class="services">
-        <div class="service-item">
-            <h2>JASA INSTALASI</h2>
-            <ul>
-                <li>Instalasi Software (OS, aplikasi, dll)</li>
-                <li>Instalasi Jaringan</li>
-                <li>Perakitan - Instalasi Komputer</li>
-            </ul>
-            <a class="btn" href="#">Selengkapnya</a>
+<div class="container mt-5">
+    <h1 class="text-center mb-5">LAYANAN</h1>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">JASA INSTALASI</h5>
+                    <ul class="list-unstyled">
+                        <li>Instalasi Software</li>
+                        <li>Instalasi Jaringan</li>
+                        <li>Perakitan & Instalasi Komputer</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Selengkapnya</a>
+                </div>
+            </div>
         </div>
-        <div class="service-item">
-            <h2>TOKO SPAREPART</h2>
-            <ul>
-                <li>Mengakses produk-produk untuk melakukan pembelian melalui e-wallet atau M-Banking</li>
-            </ul>
-            <a class="btn" href="#">Selengkapnya</a>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">TOKO SPAREPART</h5>
+                    <ul class="list-unstyled">
+                        <li>Produk Komputer & Laptop</li>
+                        <li>Pembelian Online</li>
+                        <li>E-wallet & M-Banking</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Selengkapnya</a>
+                </div>
+            </div>
         </div>
-        <div class="service-item">
-            <h2>JASA SERVIS</h2>
-            <ul>
-                <li>Terkena virus</li>
-                <li>Windows hang</li>
-                <li>Backup data</li>
-                <li>ataupun masalah lainnya.</li>
-            </ul>
-            <a class="btn" href="#">Selengkapnya</a>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">JASA SERVIS</h5>
+                    <ul class="list-unstyled">
+                        <li>Servis Komputer</li>
+                        <li>Servis Laptop</li>
+                        <li>Konsultasi via Chat</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Selengkapnya</a>
+                </div>
+            </div>
         </div>
     </div>
-    <h1>INFORMASI</h1>
-    <div class="information">
-        <div class="info-item">
-            <p>Mengetahui informasi-informasi jasa yang diberikan seperti biaya & waktu. Dengan biaya yang terjangkau dan kualitas yang terjaga</p>
-            <a class="btn" href="#">Selengkapnya</a>
+
+    <h1 class="text-center mb-5 mt-5">INFORMASI</h1>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Waktu & Biaya Service</h5>
+                    <p class="card-text">Informasi lengkap tentang estimasi waktu dan biaya layanan kami</p>
+                    <a href="#" class="btn btn-primary mr-2">Waktu Service</a>
+                    <a href="#" class="btn btn-primary">Biaya Service</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Tutorial & Panduan</h5>
+                    <p class="card-text">Panduan langkah demi langkah untuk berbagai layanan IT</p>
+                    <a href="#" class="btn btn-primary mr-2">Daftar Aplikasi</a>
+                    <a href="#" class="btn btn-primary">Tutorial</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Formulir Layanan</h5>
+                    <p class="card-text">Isi formulir untuk memulai layanan</p>
+                    <a href="#" class="btn btn-primary mr-2">Form Servis</a>
+                    <a href="#" class="btn btn-primary">Form Instalasi</a>
+                </div>
+            </div>
         </div>
     </div>
-@endsection
+    <h1 class="text-center mb-5 mt-5">Tentang Kami</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Klinik IT</h5>
+                    <ul class="list-unstyled">
+                        <li>Mengapa Harus Memilih Klinik IT?</li>
+                        <li>Visi Misi</li>
+                    </ul>
+                    <a href="/tentang" class="btn btn-primary">Selengkapnya</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>@endsection

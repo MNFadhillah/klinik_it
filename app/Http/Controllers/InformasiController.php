@@ -46,8 +46,13 @@ class InformasiController extends Controller
         return view('user.informasi.daftar_aplikasi');
     }
 
+<<<<<<< HEAD
     /**
      * Menampilkan halaman Tutorial Layar.
+=======
+        /**
+     * Menampilkan halaman tutorial Layar.
+>>>>>>> 5bead0eb6c584ea257abe832ddb322e21994dada
      *
      * @return \Illuminate\View\View
      */
@@ -56,8 +61,13 @@ class InformasiController extends Controller
         return view('user.informasi.tutorial_layar');
     }
 
+<<<<<<< HEAD
     /**
      * Menampilkan halaman Tutorial Instalasi OS.
+=======
+            /**
+     * Menampilkan halaman tutorial Instalasi OS.
+>>>>>>> 5bead0eb6c584ea257abe832ddb322e21994dada
      *
      * @return \Illuminate\View\View
      */
@@ -74,6 +84,7 @@ class InformasiController extends Controller
     public function tutorialPemulihan()
     {
         return view('user.informasi.tutorial_pemulihan');
+<<<<<<< HEAD
     }
 
     /**
@@ -83,6 +94,10 @@ class InformasiController extends Controller
      */
     public function tutorialPerbaikanKoneksi()
     {
+=======
+    }   
+    public function tutorialperbaikankoneksi(){
+>>>>>>> 5bead0eb6c584ea257abe832ddb322e21994dada
         return view('user.informasi.tutorial_perbaikanKoneksi');
     }
 

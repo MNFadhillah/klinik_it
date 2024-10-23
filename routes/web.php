@@ -31,9 +31,14 @@ Route::prefix('informasi')->name('informasi.')->group(function () {
     Route::get('/tutorial_layar', [InformasiController::class, 'tutorialLayar'])->name('tutorialLayar');
     Route::get('/tutorial_InstalasiOS', [InformasiController::class, 'tutorialInstalasiOS'])->name('tutorialInstalasiOS');
     Route::get('/tutorial_pemulihan', [InformasiController::class, 'tutorialPemulihan'])->name('tutorialPemulihan');
+<<<<<<< HEAD
     Route::get('/tutorial_perbaikanKoneksi', [InformasiController::class, 'tutorialPerbaikanKoneksi'])->name('tutorialPerbaikanKoneksi');
     Route::get('/tutorial_ram', [InformasiController::class, 'tutorialRam'])->name('tutorialRam');
     Route::get('/tutorial_kipas', [InformasiController::class, 'tutorialKipas'])->name('tutorialKipas');
+=======
+    Route::get('/tutorial_perbaikanKoneksi', [InformasiController::class, 'tutorialperbaikankoneksi'])->name('tutorialperbaikankoneksi');
+
+>>>>>>> 5bead0eb6c584ea257abe832ddb322e21994dada
 });
 
 
