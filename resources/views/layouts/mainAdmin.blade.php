@@ -19,7 +19,7 @@
         </div>
         <ul>
             <li>
-                <a href="../admin/dashboard">
+                <a href="/admin/dashboard">
                     <i class="fas fa-home"></i>
                     Dashboard
                 </a>
@@ -32,13 +32,13 @@
                 </a>
                 <ul class="collapse submenu" id="tokoSubmenu">
                     <li>
-                        <a href="/toko/pesanan">
+                        <a href="/admin/toko/pesanan">
                             <i class="fas fa-shopping-cart"></i>
                             Daftar Pesanan
                         </a>
                     </li>
                     <li>
-                        <a href="/toko/stok">
+                        <a href="/admin/toko/stok">
                             <i class="fas fa-boxes"></i>
                             Daftar Stok
                         </a>
@@ -100,7 +100,9 @@
             <div class="logo-title">
                 <h1>KLINIK IT SOLUTION</h1>
             </div>
-            <button><i class="fas fa-user-circle"></i> Admin</button>
+            <button class="btn btn-outline-secondary">
+                <i class="fas fa-user-circle"></i> Admin
+            </button>
         </div>
 
         <!-- Main Content -->
@@ -110,7 +112,6 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Chart.js -->
-    
     <script>
         mix.js('resources/js/app.js', 'public/js')
             .sass('resources/sass/app.scss', 'public/css')

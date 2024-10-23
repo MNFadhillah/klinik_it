@@ -34,10 +34,9 @@
             <img src="{{ asset('assets/img/koneksi_step6.jpg') }}" alt="Sudah bisa dipakai" width="300">
             <br><br>
         </ol>
-    </div>
-
-    <div class="warning">
-        <p><strong>Peringatan:</strong> Jika Anda tidak yakin dengan prosedur ini, sebaiknya bawa laptop Anda ke teknisi profesional untuk menghindari kerusakan lebih lanjut.</p>
+        <div class="warning">
+            <p style="color: red;"><strong>Peringatan:</strong> Jika Anda tidak yakin dengan prosedur ini, sebaiknya bawa laptop Anda ke teknisi profesional untuk menghindari kerusakan lebih lanjut.</p>
+        </div>
     </div>
 
     <div class="button-container">
@@ -50,8 +49,4 @@
             <a href="/formulir/form_servis"><i class="fas fa-file-alt"></i>Klik untuk akses</a>
         </section>
     </div>
-<<<<<<< HEAD
 @endsection
-=======
-@endsection
->>>>>>> a2022fcc666e7080c97c11856d56085b68553e41

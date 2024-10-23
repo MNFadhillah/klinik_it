@@ -47,15 +47,18 @@
                         <a class="dropdown-item" href="/informasi/daftar_aplikasi">Daftar Aplikasi</a>
                         <div class="dropdown-divider"></div>
                         <h6 class="dropdown-header">Toturial Perbaikan</h6>
-                        <a class="dropdown-item" href="/informasi/toturial_layar">Ganti Layar Laptop</a>
-                        <a class="dropdown-item" href="/informasi/toturial_InstalasiOS">Instalasi OS</a>
-                        <a class="dropdown-item" href="/informasi/toturial_pemulihan">Pemulihan Data</a>
-                        <a class="dropdown-item" href="/informasi/toturial_perbaikanKoneksi">Perbaikan Koneksi Jaringan</a>
+                        <a class="dropdown-item" href="/informasi/tutorial_layar">Ganti Layar Laptop</a>
+                        <a class="dropdown-item" href="/informasi/tutorial_InstalasiOS">Instalasi OS</a>
+                        <a class="dropdown-item" href="/informasi/tutorial_pemulihan">Pemulihan Data</a>
+                        <a class="dropdown-item" href="/informasi/tutorial_perbaikanKoneksi">Perbaikan Koneksi Jaringan</a> 
+                        <a class="dropdown-item" href="/informasi/tutorial_ram">Upgrade Ram</a>
+                        <a class="dropdown-item" href="/informasi/tutorial_kipas">Membersihkan Kipas</a>                       
                     </div>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="/toko">Toko</a></li>
                 <li class="nav-item"><a class="nav-link" href="/tentang">Tentang Kami</a></li>
                 <li class="nav-item"><a class="nav-link" href="/admin/dashboard">Admin</a></li>
+                <li class="nav-item"><a class="nav-link" href="/profil/profil">Profil</a></li>
                 <div class="kananAtas">
                     <a href="/daftar"><button class="buttonD">Daftar</button></a>
                     <div class="divider"></div>

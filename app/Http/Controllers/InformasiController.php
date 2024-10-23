@@ -46,40 +46,63 @@ class InformasiController extends Controller
         return view('user.informasi.daftar_aplikasi');
     }
 
-        /**
-     * Menampilkan halaman Toturial Layar.
+    /**
+     * Menampilkan halaman Tutorial Layar.
      *
      * @return \Illuminate\View\View
      */
-    public function toturialLayar()
+    public function tutorialLayar()
     {
-        return view('user.informasi.toturial_layar');
+        return view('user.informasi.tutorial_layar');
     }
 
-            /**
-     * Menampilkan halaman Toturial Instalasi OS.
+    /**
+     * Menampilkan halaman Tutorial Instalasi OS.
      *
      * @return \Illuminate\View\View
      */
-    public function toturialInstalasiOS()
+    public function tutorialInstalasiOS()
     {
         return view('user.informasi.tutorial_InstalasiOS');
     }
+
+    /**
+     * Menampilkan halaman Tutorial Pemulihan.
+     *
+     * @return \Illuminate\View\View
+     */
     public function tutorialPemulihan()
     {
         return view('user.informasi.tutorial_pemulihan');
     }
-    
-<<<<<<< HEAD
-    public function tutorialPemulihan()
-    {
-        return view('user.informasi.tutorial_pemulihan');
-    }
-    
-=======
->>>>>>> a2022fcc666e7080c97c11856d56085b68553e41
-    public function tutorialperbaikankoneksi()
+
+    /**
+     * Menampilkan halaman Tutorial Perbaikan Koneksi.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function tutorialPerbaikanKoneksi()
     {
         return view('user.informasi.tutorial_perbaikanKoneksi');
+    }
+
+                    /**
+     * Menampilkan halaman Toturial Upgrade Ram.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function tutorialRam()
+    {
+        return view('user.informasi.tutorial_ram');
+    }
+
+                    /**
+     * Menampilkan halaman Toturial Kipas.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function tutorialKipas()
+    {
+        return view('user.informasi.tutorial_kipas');
     }
 }

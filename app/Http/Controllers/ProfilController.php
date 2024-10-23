@@ -17,6 +17,17 @@ class ProfilController extends Controller
         return view('user.profil.edit_profil');
     }
 
+        /**
+     * Menampilkan halaman profil.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function profil()
+    {
+        // Logika untuk mengambil data profil user
+        return view('user.profil.profil');
+    }
+
     /**
      * Memperbarui profil pengguna.
      *

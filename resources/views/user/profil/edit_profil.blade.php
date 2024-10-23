@@ -19,6 +19,7 @@
             align-items: center;
             height: 100vh;
             background-color: #ffff;
+            position: relative;
         }
 
         .container {
@@ -31,7 +32,7 @@
 
         /* Tombol kembali di kiri atas dengan background bulat */
         .back-button {
-            position: absolute;
+            position: fixed; /* Ganti ke fixed agar selalu terlihat di kiri atas */
             top: 20px;
             left: 20px;
             background-color: #A1BECA;
@@ -44,11 +45,13 @@
             align-items: center;
             cursor: pointer;
             color: white;
+            z-index: 10; /* Pastikan tombol di atas elemen lainnya */
         }
 
         .back-button img {
             width: 20px;
             height: 20px;
+            pointer-events: none; /* Agar gambar tidak menghalangi klik */
         }
 
         .back-button:hover {
@@ -155,9 +158,11 @@
 </head>
 
 <body>
+    <!-- Tombol kembali di kiri atas -->
     <button class="back-button" onclick="window.history.back();">
         <img src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back Icon">
     </button>
+
     <div class="container">
         <div class="form-box">
             <h2>Edit Profil</h2>
@@ -198,7 +203,7 @@
 
     <script>
         // Fungsi untuk memuat gambar yang diunggah dan menampilkannya sebagai pratinjau
-        var loadFile = function (event) {
+        var loadFile = function(event) {
             var image = document.getElementById('profileImage');
             image.src = URL.createObjectURL(event.target.files[0]);
         };
