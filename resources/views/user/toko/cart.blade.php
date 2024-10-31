@@ -143,108 +143,114 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="container">
-            <div class="d-flex align-items-center">
-                <img src="{{ asset('assets/img/logo.png') }}" alt=" Logo Klinik IT">
-                <h1 class="ml-3">Keranjang Belanja</h1>
+    @if (Auth::check())
+        <div class="header">
+            <div class="container">
+                <div class="d-flex align-items-center">
+                    <img src="{{ asset('assets/img/logo.png') }}" alt=" Logo Klinik IT">
+                    <h1 class="ml-3">Keranjang Belanja</h1>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="main-content container">
-        <div class="mb-3">
-            <a href="/toko" class="back-btn">
-                <i class="fas fa-arrow-left"></i> Kembali
-            </a>
-        </div>
-        <div class="card">
-            <div class="card-header">
-                Daftar Belanja
-            </div>
-            <div class="card-body">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Produk</th>
-                            <th>Deskripsi</th>
-                            <th>Harga</th>
-                            <th>Total Harga</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Product Row 1 -->
-                        <tr class="product-row align-items-center">
-                            <td class="product-image">
-                                <img src="../img/1.jpg" alt="Produk 1" class="img-fluid">
-                            </td>
-                            <td class="product-description">
-                                <strong>Xiaomi RedmiBook 15</strong><br>
-                                Laptop Xiaomi RedmiBook 15 intel i3-1115G4 Ram 8GB + SSD 256GB W10 - Non Bundling
-                            </td>
-                            <td class="price">Rp. 4.919.000</td>
-                            <td class="total-price">Rp. 4.919.000</td>
-                            <td>
-                                <button class="delete-btn btn btn-sm">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-            
-                        <!-- Product Row 2 -->
-                        <tr class="product-row align-items-center">
-                            <td class="product-image">
-                                <img src="../img/2.jpg" alt="Produk 2" class="img-fluid">
-                            </td>
-                            <td class="product-description">
-                                <strong>Lenovo Thinkpad X220</strong><br>
-                                Lenovo Thinkpad Laptop X220 Core i5 Ram 4/8GB HDD 320/256GB Murah - X220I I3 GEN2
-                            </td>
-                            <td class="price">Rp. 1.390.000</td>
-                            <td class="total-price">Rp. 1.390.000</td>
-                            <td>
-                                <button class="delete-btn btn btn-sm">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-            
-                        <!-- Product Row 3 -->
-                        <tr class="product-row align-items-center">
-                            <td class="product-image">
-                                <img src="../img/3.jpg" alt="Produk 3" class="img-fluid">
-                            </td>
-                            <td class="product-description">
-                                <strong>Apple Macbook Air M1</strong><br>
-                                (RESMI IBOX) Apple MacBook Air M1 Chip 2020 256GB 8GB Garansi resmi - silver
-                            </td>
-                            <td class="price">Rp. 12.449.000</td>
-                            <td class="total-price">Rp. 12.449.000</td>
-                            <td>
-                                <button class="delete-btn btn btn-sm">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="bottom-summary">
-            <div class="select-all">
-                <input type="checkbox"> Pilih Semua (3)
-            </div>
-            <div class="total-price-summary">
-                Total (3): <strong>Rp. 18.758.000</strong>
-            </div>
-            <br>
-            <div class="button-checkout">
-                <a href="../toko/checkout" class="checkout-btn">
-                    <span class="btn-text">Checkout</span>
-                    <span class="btn-icon"><i class="fas fa-shopping-cart"></i></span>
+        <div class="main-content container">
+            <div class="mb-3">
+                <a href="/toko" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Kembali
                 </a>
             </div>
+            <div class="card">
+                <div class="card-header">
+                    Daftar Belanja
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Produk</th>
+                                <th>Deskripsi</th>
+                                <th>Harga</th>
+                                <th>Total Harga</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Product Row 1 -->
+                            <tr class="product-row align-items-center">
+                                <td class="product-image">
+                                    <img src="../img/1.jpg" alt="Produk 1" class="img-fluid">
+                                </td>
+                                <td class="product-description">
+                                    <strong>Xiaomi RedmiBook 15</strong><br>
+                                    Laptop Xiaomi RedmiBook 15 intel i3-1115G4 Ram 8GB + SSD 256GB W10 - Non Bundling
+                                </td>
+                                <td class="price">Rp. 4.919.000</td>
+                                <td class="total-price">Rp. 4.919.000</td>
+                                <td>
+                                    <button class="delete-btn btn btn-sm">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                
+                            <!-- Product Row 2 -->
+                            <tr class="product-row align-items-center">
+                                <td class="product-image">
+                                    <img src="../img/2.jpg" alt="Produk 2" class="img-fluid">
+                                </td>
+                                <td class="product-description">
+                                    <strong>Lenovo Thinkpad X220</strong><br>
+                                    Lenovo Thinkpad Laptop X220 Core i5 Ram 4/8GB HDD 320/256GB Murah - X220I I3 GEN2
+                                </td>
+                                <td class="price">Rp. 1.390.000</td>
+                                <td class="total-price">Rp. 1.390.000</td>
+                                <td>
+                                    <button class="delete-btn btn btn-sm">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                
+                            <!-- Product Row 3 -->
+                            <tr class="product-row align-items-center">
+                                <td class="product-image">
+                                    <img src="../img/3.jpg" alt="Produk 3" class="img-fluid">
+                                </td>
+                                <td class="product-description">
+                                    <strong>Apple Macbook Air M1</strong><br>
+                                    (RESMI IBOX) Apple MacBook Air M1 Chip 2020 256GB 8GB Garansi resmi - silver
+                                </td>
+                                <td class="price">Rp. 12.449.000</td>
+                                <td class="total-price">Rp. 12.449.000</td>
+                                <td>
+                                    <button class="delete-btn btn btn-sm">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="bottom-summary">
+                <div class="select-all">
+                    <input type="checkbox"> Pilih Semua (3)
+                </div>
+                <div class="total-price-summary">
+                    Total (3): <strong>Rp. 18.758.000</strong>
+                </div>
+                <br>
+                <div class="button-checkout">
+                    <a href="../toko/checkout" class="checkout-btn">
+                        <span class="btn-text">Checkout</span>
+                        <span class="btn-icon"><i class="fas fa-shopping-cart"></i></span>
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
+    @else
+        <script>
+            window.location.href = "{{ route('login') }}";
+        </script>
+    @endif
 </body>
 </html>

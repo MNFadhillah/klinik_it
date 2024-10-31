@@ -3,10 +3,41 @@
 @section('title', 'Daftar Aplikasi')
 
 @section('content')
+<style>
+    .back-button {
+        position: relative; /* Menggunakan relative agar mengikuti tata letak elemen */
+        display: inline-flex; /* Inline agar bisa bersebelahan dengan elemen lain jika perlu */
+        margin-top: 10px; /* Jarak vertikal dari elemen sebelumnya */
+        /* margin-bottom: 20px; Jarak ke elemen berikutnya */
+        margin-left: 20px; /* Menggeser tombol sedikit ke kanan */
+        background-color: #A1BECA;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: white;
+        z-index: 10;
+    }
+    
+    .back-button img {
+        width: 20px;
+        height: 20px;
+        pointer-events: none;
+    }
+    
+    .back-button:hover {
+        background-color: #CDC1FF;
+    }
+    </style>
 <header>
     <h1>Daftar Aplikasi</h1>
 </header>
-
+<button class="back-button" onclick="window.history.back();">
+    <img src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back Icon">
+</button>
     <div class="image-container">
         <img src="{{ asset('assets/img/daftar_aplikasi.png') }}" alt="Foto Daftar Aplikasi">
     </div>

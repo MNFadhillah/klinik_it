@@ -138,7 +138,7 @@
                         <li>Instalasi Jaringan</li>
                         <li>Perakitan & Instalasi Komputer</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Selengkapnya</a>
+                    <a href="/layanan/jasa_instalasi" class="btn btn-primary">Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -151,7 +151,7 @@
                         <li>Pembelian Online</li>
                         <li>E-wallet & M-Banking</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Selengkapnya</a>
+                    <a href="/toko/produk" class="btn btn-primary">Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -164,7 +164,7 @@
                         <li>Servis Laptop</li>
                         <li>Konsultasi via Chat</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Selengkapnya</a>
+                    <a href="/layanan/jasa_servis" class="btn btn-primary">Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -177,8 +177,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Waktu & Biaya Service</h5>
                     <p class="card-text">Informasi lengkap tentang estimasi waktu dan biaya layanan kami</p>
-                    <a href="#" class="btn btn-primary mr-2">Waktu Service</a>
-                    <a href="#" class="btn btn-primary">Biaya Service</a>
+                    <a href="/informasi/servis" class="btn btn-primary mr-2">Waktu Service</a>
+                    <a href="/informasi/biaya" class="btn btn-primary">Biaya Service</a>
                 </div>
             </div>
         </div>
@@ -187,8 +187,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Tutorial & Panduan</h5>
                     <p class="card-text">Panduan langkah demi langkah untuk berbagai layanan IT</p>
-                    <a href="#" class="btn btn-primary mr-2">Daftar Aplikasi</a>
-                    <a href="#" class="btn btn-primary">Tutorial</a>
+                    <a href="/informasi/daftar_aplikasi" class="btn btn-primary mr-2">Daftar Aplikasi</a>
+                    <a href="/informasi/isi_informasi" class="btn btn-primary">Tutorial</a>
                 </div>
             </div>
         </div>
@@ -197,8 +197,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Formulir Layanan</h5>
                     <p class="card-text">Isi formulir untuk memulai layanan</p>
-                    <a href="#" class="btn btn-primary mr-2">Form Servis</a>
-                    <a href="#" class="btn btn-primary">Form Instalasi</a>
+                    <a href="/formulir/form_servis" class="btn btn-primary mr-2">Form Servis</a>
+                    <a href="/formulir/form_instalasi" class="btn btn-primary">Form Instalasi</a>
                 </div>
             </div>
         </div>
