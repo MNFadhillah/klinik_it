@@ -1,18 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\TokoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DaftarController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\InformasiController;
-use App\Http\Controllers\LayananController;
-use App\Http\Controllers\FormulirController;
-use App\Http\Controllers\TokoController;
 use App\Http\Controllers\ProfilController;
-use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\LayananController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\FormulirController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\AdminTokoController;
+use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\AdminServisController;
+use App\Http\Controllers\AdminDashboardController;
 
 // Authentication Routes
 Route::get('/login', [LoginController::class, 'login'])->name('login');
@@ -50,16 +52,26 @@ Route::prefix('layanan')->name('layanan.')->group(function () {
 
 
 // Store Routes
-Route::prefix('toko')->name('toko')->group(function () {
-    Route::get('/', [TokoController::class, 'produk'])->name('index');
-    Route::get('/cart', [TokoController::class, 'cart'])->name('cart');
-    Route::get('/checkout', [TokoController::class, 'checkout'])->name('checkout');
-    Route::post('/add-to-cart', [TokoController::class, 'addToCart'])->name('addToCart');
+Route::prefix('toko')->name('toko.')->group(function () {
+    // Rute untuk menampilkan produk secara umum
+    Route::get('/produk', [ProductController::class, 'index'])->name('produk.index');
+
+    // Rute untuk keranjang
+    Route::get('/cart', [ProductController::class, 'cart'])->name('cart');
+    Route::post('/cart/add/{id}', [ProductController::class, 'addToCart'])->name('cart.add'); // Route untuk menambahkan ke keranjang
+    Route::get('/checkout', [ProductController::class, 'checkout'])->name('checkout'); // Route untuk checkout
+
+    // Rute untuk menampilkan halaman kategori
+    Route::get('/', [KategoriController::class, 'index'])->name('index');
+
+    // Rute untuk menampilkan produk berdasarkan kategori
+    Route::get('/kategori/{id}', [ProductController::class, 'showByCategory'])->name('kategori.produk');
 });
+
 
 // Form Routes
 Route::prefix('formulir')->name('formulir.')->group(function () {
-    Route::get('/form-servis', [FormulirController::class, 'formServis'])->name('formServis');
+    Route::get('/form_servis', [FormulirController::class, 'formservis'])->name('formservis');
     Route::post('/servis', [FormulirController::class, 'submitFormServis'])->name('submitFormServis');
     Route::get('/form-instalasi', [FormulirController::class, 'formInstalasi'])->name('formInstalasi');
     Route::post('/instalasi', [FormulirController::class, 'submitFormInstalasi'])->name('submitFormInstalasi');
@@ -72,20 +84,28 @@ Route::prefix('profil')->name('profil.')->group(function () {
     Route::get('/profil', [ProfilController::class, 'profil'])->name('profil');
 });
 
+
 // Admin Routes
-// Route::prefix('admin')->name('admin.')->group(function () {
-//     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
-//     Route::get('/toko/pesanan', [AdminTokoController::class, 'pesanan'])->name('pesanan');
-//     Route::get('/toko/stok', [AdminTokoController::class, 'stok'])->name('stok');
-// });
-
-
-
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
-    Route::get('/toko/pesanan', [AdminTokoController::class, 'pesanan'])->name('pesanan');
-    Route::get('/toko/stok', [AdminTokoController::class, 'stok'])->name('stok');
+    
+    // Rute untuk stok produk
+    Route::get('/toko/stok', [AdminTokoController::class, 'stok'])->name('stok'); // Tampilkan daftar stok
+    Route::get('/toko/pesanan', [AdminTokoController::class, 'pesanan'])->name('pesanan'); // Tampilkan daftar stok
+
+    // Rute untuk menambah produk
+    Route::get('/toko/create', [AdminTokoController::class, 'create'])->name('toko.create'); // Tampilkan form tambah produk
+    Route::post('/toko/store', [AdminTokoController::class, 'store'])->name('toko.store'); // Proses tambah produk
+
+    // Rute untuk mengedit produk
+    Route::get('/toko/edit/{id}', [AdminTokoController::class, 'edit'])->name('toko.edit'); // Tampilkan form edit produk
+    Route::put('/toko/update/{id}', [AdminTokoController::class, 'update'])->name('toko.update'); // Proses update produk
+
+    // Rute untuk menghapus produk
+    // Route::delete('/toko/destroy/{id}', [AdminTokoController::class, 'destroy'])->name('toko.destroy'); // Hapus produk
 });
+
+
 
 
 // Service Routes

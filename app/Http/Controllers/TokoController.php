@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Produk;
 use Illuminate\Http\Request;
+
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\DB; // Import DB facade
 
 class TokoController extends Controller
 {
@@ -13,8 +17,9 @@ class TokoController extends Controller
      */
     public function produk()
     {
-        // Logika untuk mengambil data produk, jika diperlukan
-        return view('user.toko.produk');
+        // Mengambil semua produk dari tabel 'products'
+        $produk = Produk::all();
+        return view('user.toko.produk', ['produk' => $produk]);
     }
 
     /**
@@ -51,4 +56,5 @@ class TokoController extends Controller
 
     //     return redirect()->back()->with('success', 'Item berhasil ditambahkan ke keranjang');
     // }
+
 }
