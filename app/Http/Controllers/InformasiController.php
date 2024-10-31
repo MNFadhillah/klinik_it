@@ -105,4 +105,14 @@ class InformasiController extends Controller
     {
         return view('user.informasi.tutorial_kipas');
     }
+
+                        /**
+     * Menampilkan halaman Isi Informasi.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function isiInformasi()
+    {
+        return view('user.informasi.isi_informasi');
+    }
 }

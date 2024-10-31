@@ -46,36 +46,24 @@
                         <a class="dropdown-item" href="/informasi/biaya">Biaya Service</a>
                         <a class="dropdown-item" href="/informasi/daftar_aplikasi">Daftar Aplikasi</a>
                         <div class="dropdown-divider"></div>
-                        <h6 class="dropdown-header">Tutorial Perbaikan</h6>
+                        <h6 class="dropdown-header">Toturial Perbaikan</h6>
                         <a class="dropdown-item" href="/informasi/tutorial_layar">Ganti Layar Laptop</a>
                         <a class="dropdown-item" href="/informasi/tutorial_InstalasiOS">Instalasi OS</a>
                         <a class="dropdown-item" href="/informasi/tutorial_pemulihan">Pemulihan Data</a>
-                        <a class="dropdown-item" href="/informasi/tutorial_perbaikanKoneksi">Perbaikan Koneksi Jaringan</a>
-                        <a class="dropdown-item" href="/informasi/tutorial_ram">Upgrade RAM</a>
-                        <a class="dropdown-item" href="/informasi/tutorial_kipas">Membersihkan Kipas</a>
+                        <a class="dropdown-item" href="/informasi/tutorial_perbaikanKoneksi">Perbaikan Koneksi Jaringan</a> 
+                        <a class="dropdown-item" href="/informasi/tutorial_ram">Upgrade Ram</a>
+                        <a class="dropdown-item" href="/informasi/tutorial_kipas">Membersihkan Kipas</a>                       
                     </div>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="/toko">Toko</a></li>
                 <li class="nav-item"><a class="nav-link" href="/tentang">Tentang Kami</a></li>
-
-                @if (Auth::check())
-                    <!-- Jika pengguna sudah login -->
-                    {{-- <li class="nav-item"><a class="nav-link" href="/admin/dashboard">Admin</a></li> --}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/profil/profil">
-                            <i class="fas fa-user-circle profile-icon"></i>
-                        </a>                        
-                    </li>                    
-                    {{-- <li class="nav-item"><a class="nav-link" href="/profil/profil">Profil</a></li> --}}
-                    {{-- <li class="nav-item"><a class="btn btn-danger" href="{{ route('login.logout') }}">Logout</a></li> --}}
-                @else
-                    <!-- Jika pengguna belum login -->
-                    <div class="kananAtas">
-                        <a href="/register"><button class="buttonD">Daftar</button></a>
-                        <div class="divider"></div>
-                        <a href="/login"><button class="buttonD">Masuk</button></a>
-                    </div>
-                @endif
+                <li class="nav-item"><a class="nav-link" href="/admin/dashboard">Admin</a></li>
+                <li class="nav-item"><a class="nav-link" href="/profil/profil">Profil</a></li>
+                <div class="kananAtas">
+                    <a href="/register"><button class="buttonD">Daftar</button></a>
+                    <div class="divider"></div>
+                    <a href="/login"><button class="buttonD">Masuk</button></a>
+                </div>
             </ul>
         </div>
     </nav>
@@ -84,33 +72,33 @@
     @yield('content')
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <img src="{{ asset('assets/img/logo.png') }}" alt="Logo Klinik IT" class="footer-logo"/>
-                    <h5 class="mt-3">KLINIK IT</h5>
-                    <p>Solusi IT Terpercaya</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5>Hubungi Kami</h5>
-                    <p><i class="fas fa-map-marker-alt"></i> Universitas Lambung Mangkurat</p>
-                    <p><i class="fas fa-city"></i> Kota Banjarmasin, Kalimantan Selatan</p>
-                    <p><i class="fas fa-envelope"></i> Kode POS 70121</p>
-                </div>
-                <div class="col-md-4">
-                    <h5>Ikuti Kami</h5>
-                    <div class="social-media">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                    </div>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <img src="{{ asset('assets/img/logo.png') }}" alt="Logo Klinik IT" class="footer-logo"/>
+                <h5 class="mt-3">KLINIK IT</h5>
+                <p>Solusi IT Terpercaya</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5>Hubungi Kami</h5>
+                <p><i class="fas fa-map-marker-alt"></i> Universitas Lambung Mangkurat</p>
+                <p><i class="fas fa-city"></i> Kota Banjarmasin, Kalimantan Selatan</p>
+                <p><i class="fas fa-envelope"></i> Kode POS 70121</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Ikuti Kami</h5>
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
                 </div>
             </div>
-            <hr class="footer-divider">
-            <p class="copyright">KLINIK IT Copyright 2024</p>
         </div>
-    </footer>
+        <hr class="footer-divider">
+        <p class="copyright">KLINIK IT Copyright 2024</p>
+    </div>
+</footer>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

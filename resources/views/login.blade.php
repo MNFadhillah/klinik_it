@@ -161,30 +161,78 @@
             width: 100%;
             margin: 20px 0;
         }
+        .back-button {
+            position: fixed; /* Ganti ke fixed agar selalu terlihat di kiri atas */
+            top: 20px;
+            left: 20px;
+            background-color: #A1BECA;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: white;
+            z-index: 10; /* Pastikan tombol di atas elemen lainnya */
+        }
+
+        .back-button img {
+            width: 20px;
+            height: 20px;
+            pointer-events: none; /* Agar gambar tidak menghalangi klik */
+        }
+
+        .back-button:hover {
+            background-color: #CDC1FF;
+        }
+
+        
     </style>
 </head>
 <body>
+    <button class="back-button" onclick="window.location.href='/';">
+        <img src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back Icon">
+    </button>
     <div class="login-container">
         <div class="left-section">
             <h1>MASUK</h1>
             <hr>
-            <div class="input-group">
-                <i class="fas fa-envelope"></i>
-                <input type="email" placeholder="Email">
-            </div>
-            <div class="input-group">
-                <i class="fas fa-key"></i>
-                <input type="password" placeholder="Password">
-            </div>
-            <div class="options">
-                <button id="loginBtn" class="login-btn">Masuk</button>
-                <a href="#">Lupa Password?</a>
-            </div>
+            <form method="post" action="{{ route('login.auth') }}">
+                @csrf
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old ('email') }}" placeholder="Email">
+                    @error('email')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>                            
+                    @enderror
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-key"></i>
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Password">
+                    @error('password')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>                            
+                    @enderror
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="checkRemember" name="checkRemember">
+                    <label class="form-check-label" for="checkRemember">Ingat Saya</label>
+                </div>
+                <div class="options">
+                    <button id="loginBtn" class="login-btn">Masuk</button>
+                    {{-- <a href="#">Lupa Password?</a> --}}
+                </div>
+            </form>
         </div>
         <div class="vertical-separator"></div>
         <div class="right-section">
             <div class="options">
-                <span>Tidak Punya Akun? <a href="/daftar">Daftar</a></span>
+                <span>Tidak Punya Akun? <a href="{{ route('register.show') }}">Daftar</a></span>
             </div>
             <div class="horizontal-separator"></div>
             <p>Gunakan Akun Facebook / Google Kamu untuk Masuk:</p>

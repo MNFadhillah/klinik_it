@@ -11,29 +11,57 @@
         <table class="table custom-table rounded-table table-hover">
             <thead class="custom-header">
                 <tr>
-                    <th>ID</th>
+                    <th>No</th>
                     <th>Nama Pelanggan</th>
                     <th>Tipe Komputer</th>
                     <th>Masalah</th>
                     <th>Tanggal Masuk</th>
                     <th>Status</th>
-                     <th>Aksi</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach($servisList as $servis)
                 <tr>
-                    <td>1</td>
-                    <td>Jane Doe</td>
-                    <td>Desktop</td>
-                    <td>Komputer tidak dapat booting</td>
-                    <td>2023-06-18</td>
-                    <td><span class="badge bg-success">Selesai</span></td>
-                    <td>
-                        <button class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></button>
-                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                <td>{{ $loop->iteration }}</td> 
+
+                    <td>{{ $servis->nama }}</td>
+                    <td>{{ $servis->jenis_servis }}</td>
+                    <td>{{ $servis->masalah }}</td>
+                    <td>{{ $servis->tanggal_masuk }}</td>
+                    <td>{{ $servis->status }}</td>
+                    <!-- <td>
+                        @if($servis->status == 'selesai')
+                            <span class="badge bg-success">Selesai</span>
+                        @else
+                            <span class="badge bg-warning">{{ ucfirst($servis->status) }}</span>
+                        @endif
+                    </td> -->
+                   <td>
+                        <div class="btn-group">
+                            <a href="{{ route('admin.servis.show', $servis->formulir_id) }}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <button class="btn btn-sm btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                @foreach (['pesanan diterima', 'proses pemeriksaan', 'proses perbaikan', 'selesai'] as $status)
+                                    <li>
+                                    <form action="{{ route('admin.servis.updateStatus', $servis->formulir_id) }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="status" value="{{ $status }}">
+                        <button type="submit" class="dropdown-item">{{ ucfirst($status) }}</button>
+                    </form>
+
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </td>
+
                 </tr>
-                <!-- Tambahkan baris lain sesuai kebutuhan -->
+                @endforeach
             </tbody>
         </table>
     </div>

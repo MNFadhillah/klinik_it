@@ -70,6 +70,15 @@
         cursor: pointer;
         margin-top: 10px;
     }
+    .profile-section .logout-button {
+        background-color: #ad0d0d;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
     .info-section {
         background-color: #d1c4e9;
         padding: 20px;
@@ -149,6 +158,7 @@
     <h2>Ahmad Ibnu</h2>
     <p>ahmadibnu123@gmail.com</p>
     <button class="edit-button" onclick="window.location.href='/profil/edit_profil'">Edit Profil</button>
+    <button class="logout-button" onclick="window.location.href='{{ route('login.logout') }}'">Logout</button>
 </div>
 
 <div class="info-section">
@@ -177,7 +187,7 @@
             <i class="fas fa-snowflake"></i>
             <p>Servis</p>
         </a>
-        <a class="order-item" href="#">
+        <a class="order-item" href="/profil/sperpart">
             <i class="fas fa-tools"></i>
             <p>Sperpart</p>
         </a>
