@@ -4,7 +4,7 @@
 <div class="content-container">
     <div class="row justify-content-center mb-3">
         <div class="col-md-8 text-center">
-            <h2 class="display-7 fw-bold">Daftar Service Notebook / Laptop</h2>
+            <h2 class="display-7 fw-bold">Daftar Service Komputer</h2>
         </div>
     </div>
     <div class="table-responsive">
@@ -13,7 +13,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Nama Pelanggan</th>
-                    <th>Merek Notebook / Laptop</th>
+                    <th>Tipe Komputer</th>
                     <th>Masalah</th>
                     <th>Tanggal Masuk</th>
                     <th>Status</th>
@@ -21,19 +21,30 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($servisList as $servis)
                 <tr>
-                    <td>1</td>
-                    <td>John Smith</td>
-                    <td>Asus</td>
-                    <td>Layar notebook tidak dapat menampilkan gambar</td>
-                    <td>2023-06-22</td>
-                    <td><span class="badge bg-warning">Dalam Proses</span></td>
+                    <td>{{ $servis->id }}</td>
+                    <td>{{ $servis->nama }}</td>
+                    <td>{{ $servis->jenis_servis }}</td>
+                    <td>{{ $servis->masalah }}</td>
+                    <td>{{ $servis->tanggal_masuk }}</td>
                     <td>
-                        <button class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></button>
-                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                        @if($servis->status == 'selesai')
+                            <span class="badge bg-success">Selesai</span>
+                        @else
+                            <span class="badge bg-warning">Proses</span>
+                        @endif
+                    </td>
+                    <td>
+                        <a href="{{ route('admin.servis.show', $servis->formulir_id) }}" class="btn btn-sm btn-primary">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                        <a href="{{ route('admin.servis.edit', $servis->formulir_id) }}" class="btn btn-sm btn-warning">
+                            <i class="fas fa-edit"></i>
+                        </a>
                     </td>
                 </tr>
-                <!-- Tambahkan baris lain sesuai kebutuhan -->
+                @endforeach
             </tbody>
         </table>
     </div>

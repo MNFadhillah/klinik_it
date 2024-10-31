@@ -88,12 +88,35 @@ Route::prefix('toko')->name('toko')->group(function () {
 });
 
 // Form Routes
+
+// Route::prefix('formulir')->name('formulir.')->group(function () {
+//     Route::get('/form-servis', [FormulirController::class, 'formServis'])->name('formServis');
+//     Route::post('/servis', [FormulirController::class, 'submitFormServis'])->name('submitFormServis');
+//     Route::get('/form-instalasi', [FormulirController::class, 'formInstalasi'])->name('formInstalasi');
+//     Route::post('/instalasi', [FormulirController::class, 'submitFormInstalasi'])->name('submitFormInstalasi');
+// });
+// Formulir Routes
+Route::prefix('formulir')
+    ->name('formulir.')
+    ->group(function () {
+        Route::get('/form_servis', [FormulirController::class, 'formservis'])->name('formservis');
+        Route::post('/servis', [FormulirController::class, 'submitFormServis'])->name('submitFormServis');
+        Route::get('/form_instalasi', [FormulirController::class, 'forminstalasi'])->name('forminstalasi');
+        Route::post('/instalasi', [FormulirController::class, 'submitFormInstalasi'])->name('submitFormInstalasi');
+        // Route::get('/admin/servis', [AdminServisController::class, 'index'])->name('admin.servis.index');
+        Route::get('/admin/servis/service-komputer', [AdminServisController::class, 'serviceKomputer'])->name('admin.servis.service-komputer');
+    });
+    
+
+
+
 Route::prefix('formulir')->name('formulir.')->group(function () {
     Route::get('/form_servis', [FormulirController::class, 'formServis'])->name('formServis');
     Route::post('/servis', [FormulirController::class, 'submitFormServis'])->name('submitFormServis');
     Route::get('/form_instalasi', [FormulirController::class, 'formInstalasi'])->name('formInstalasi');
     Route::post('/instalasi', [FormulirController::class, 'submitFormInstalasi'])->name('submitFormInstalasi');
 });
+
 
 // Profile Routes
 Route::prefix('profil')->name('profil.')->group(function () {
@@ -109,14 +132,36 @@ Route::prefix('profil')->name('profil.')->group(function () {
 //     Route::get('/toko/pesanan', [AdminTokoController::class, 'pesanan'])->name('pesanan');
 //     Route::get('/toko/stok', [AdminTokoController::class, 'stok'])->name('stok');
 // });
+// Admin Routes
+// Route::prefix('admin')->name('admin.')->group(function () {
+//     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
+//     Route::get('/toko/pesanan', [AdminTokoController::class, 'pesanan'])->name('pesanan');
+//     Route::get('/toko/stok', [AdminTokoController::class, 'stok'])->name('stok');
+    
+//     // Routes for Servis
+//     Route::get('/servis/{id}', [AdminServisController::class, 'show'])->name('admin.servis.show'); // New Route for showing servis detail
+//     Route::get('/servis/service-komputer', [AdminServisController::class, 'serviceKomputer'])->name('admin.servis.service-komputer');
+// });
 
-
-
+// Admin Routes
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
     Route::get('/toko/pesanan', [AdminTokoController::class, 'pesanan'])->name('pesanan');
     Route::get('/toko/stok', [AdminTokoController::class, 'stok'])->name('stok');
+
+    // Rute untuk servis
+    Route::get('/servis', [AdminServisController::class, 'index'])->name('servis.index');
+    Route::get('/servis/{formulir_id}', [AdminServisController::class, 'show'])->name('servis.show');
+    Route::post('/servis/{formulir_id}/update-status', [AdminServisController::class, 'updateStatus'])->name('servis.updateStatus');
 });
+
+
+
+// Route::prefix('admin')->name('admin.')->group(function () {
+//     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
+//     Route::get('/toko/pesanan', [AdminTokoController::class, 'pesanan'])->name('pesanan');
+//     Route::get('/toko/stok', [AdminTokoController::class, 'stok'])->name('stok');
+// });
 
 
 // Service Routes
@@ -124,7 +169,7 @@ Route::prefix('servis')->name('servis.')->group(function () {
     Route::get('/instalasi-software', [AdminServisController::class, 'instalasiSoftware'])->name('instalasi-software');
     Route::get('/instalasi-jaringan', [AdminServisController::class, 'instalasiJaringan'])->name('instalasi-jaringan');
     Route::get('/service-komputer', [AdminServisController::class, 'serviceKomputer'])->name('service-komputer');
-    Route::get('/service-laptop', [AdminServisController::class, 'serviceLaptop'])->name('service-laptop');
+    Route::get('/service-laptop/{formulir_id}', [AdminServisController::class, 'serviceLaptop'])->name('service-laptop');
     Route::get('/perakitan-instalasi-komputer', [AdminServisController::class, 'perakitanInstalasiKomputer'])->name('perakitan-instalasi-komputer');
     Route::get('/daftar-chat', [AdminServisController::class, 'daftarChat'])->name('daftar-chat');
-});
+}); 
