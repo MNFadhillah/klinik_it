@@ -107,11 +107,11 @@ class PageController extends Controller
     //     {
     //         return view('admin/dashboardAdmin');
     //     }
-    //     public function pesanan()
-    //     {
-    //         // Tampilkan daftar pesanan
-    //         return view('admin/toko/pesanan');
-    //     }
+        // public function pesanan()
+        // {
+        //     // Tampilkan daftar pesanan
+        //     return view('admin/toko/pesanan');
+        // }
     
     //     public function stok()
     //     {
