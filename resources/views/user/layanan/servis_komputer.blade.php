@@ -37,7 +37,7 @@
         </section>
         <section class="center-button">
             <p>Ingin Instalasi? Isi formulir di bawah ini :</p>
-            <a href="/formulir/form_instalasi">
+            <a href="/formulir/form_servis">
                 <i class="fas fa-file-alt"></i> Klik untuk akses
             </a>
         </section>
