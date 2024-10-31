@@ -1,51 +1,35 @@
 @extends('layouts.main')
 
 @section('content')
-<style>
-    .back-button {
-        position: relative; /* Menggunakan relative agar mengikuti tata letak elemen */
-        display: inline-flex; /* Inline agar bisa bersebelahan dengan elemen lain jika perlu */
-        margin-top: 10px; /* Jarak vertikal dari elemen sebelumnya */
-        /* margin-bottom: 20px; Jarak ke elemen berikutnya */
-        margin-left: 20px; /* Menggeser tombol sedikit ke kanan */
-        background-color: #A1BECA;
-        border: none;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        color: white;
-        z-index: 10;
-    }
-    
-    .back-button img {
-        width: 20px;
-        height: 20px;
-        pointer-events: none;
-    }
-    
-    .back-button:hover {
-        background-color: #CDC1FF;
-    }
-</style>
-@if (Auth::check())
-    <button class="back-button" onclick="window.history.back();">
-        <img src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back Icon">
-    </button>
-    <div class="container mt-5">
-        <div class="row mb-4">
-            <div class="col-12 d-flex justify-content-end">
-                <a href="toko/cart" class="btn btn-primary me-2 rounded-pill mr-2">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Keranjang 
-                    <span class="badge bg-danger rounded-pill">1</span>
-                </a>
-                <a href="toko/checkout" class="btn btn-success rounded-pill">
-                    <i class="fa fa-money" aria-hidden="true"></i> Lihat Pesanan
-                </a>
-            </div>
+<div class="container mt-5">
+    <!-- Search Bar dan Filter -->
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <form action="{{ route('toko.index') }}" method="GET" class="d-flex">
+                <input type="text" name="search" class="form-control me-2" placeholder="Cari produk..." value="{{ request('search') }}">
+                <select name="kategori" class="form-select me-2" style="width: 200px;">
+                    <option value="">Semua Kategori</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}" {{ request('kategori') == $category->id ? 'selected' : '' }}>
+                            {{ $category->nama_kategori }}
+                        </option>
+                    @endforeach
+                </select>
+                <button type="submit" class="btn btn-primary">Cari</button>
+            </form>
         </div>
+        <div class="col-md-4 d-flex justify-content-end">
+            <a href="{{ route('toko.cart') }}" class="btn btn-primary me-2 rounded-pill">
+                <i class="fa fa-shopping-cart"></i> Keranjang
+                @if(session('cart_count'))
+                    <span class="badge bg-danger rounded-pill">{{ session('cart_count') }}</span>
+                @endif
+            </a>
+            <a href="{{ route('toko.checkout') }}" class="btn btn-success rounded-pill">
+                <i class="fa fa-money"></i> Pesanan
+            </a>
+        </div>
+    </div>
 
     <!-- Flash Messages -->
     @if(session('success'))
@@ -55,109 +39,111 @@
         </div>
     @endif
 
-    <!-- Daftar produk -->
+    <!-- Daftar Produk -->
     <div class="row row-cols-1 row-cols-md-4 g-4">
         @forelse($produk as $product)
-        <div class="col mb-4">
-            <div class="card h-100 border-0 shadow-sm product-card">
-                <!-- Badge untuk produk baru -->
-                @if($product->created_at->diffInDays(now()) < 7)
-                    <div class="position-absolute top-0 end-0 m-2">
-                        <span class="badge bg-success">New</span>
-                    </div>
-                @endif
-
-                <!-- Gambar Produk -->
-                <div class="position-relative">
-                    @if($product->gambar)
-                        <img src="{{ asset('storage/img/' . $product->gambar) }}" 
-                             class="card-img-top" 
-                             alt="{{ $product->nama_produk }}" 
-                             style="height: 200px; object-fit: cover;">
-                    @else
-                        <img src="{{ asset('img/no-image.png') }}" 
-                             class="card-img-top" 
-                             alt="No Image" 
-                             style="height: 200px; object-fit: cover;">
+            <div class="col mb-4">
+                <div class="card h-100 border-0 shadow-sm product-card">
+                    <!-- Badge untuk produk baru -->
+                    @if($product->created_at->diffInDays(now()) < 7)
+                        <div class="position-absolute top-0 end-0 m-2">
+                            <span class="badge bg-success">New</span>
+                        </div>
                     @endif
-                </div>
 
-            <!-- Product 2 -->
-            <div class="col">
-                <div class="card h-100 border-0 shadow">
-                    <img src="../img/2.jpg" class="card-img-top" alt="Lenovo Thinkpad X220">
+                    <!-- Gambar Produk -->
+                    <div class="position-relative">
+                        @if($product->gambar)
+                            <img src="{{ asset('storage/img/' . $product->gambar) }}" 
+                                 class="card-img-top" 
+                                 alt="{{ $product->nama_produk }}" 
+                                 style="height: 200px; object-fit: cover;">
+                        @else
+                            <img src="{{ asset('img/no-image.png') }}" 
+                                 class="card-img-top" 
+                                 alt="No Image" 
+                                 style="height: 200px; object-fit: cover;">
+                        @endif
+                    </div>
+
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title fw-bold">Lenovo Thinkpad X220</h5>
-                        <p class="card-text flex-grow-1">Lenovo Thinkpad Laptop X220 Core i5 Ram 4/8GB HDD 320/256GB Murah - X220I I3 GEN2</p>
-                        <p class="card-text text-success fw-bold fs-5">Rp. 1.390.000</p>
-                        <p class="card-text"><small class="text-muted">Stok: 11</small></p>
+                        <!-- Kategori -->
+                        <span class="badge bg-secondary mb-2">{{ $product->kategori->nama_kategori }}</span>
+                        
+                        <!-- Nama Produk -->
+                        <h5 class="card-title fw-bold text-truncate">{{ $product->nama_produk }}</h5>
+                        
+                        <!-- Deskripsi -->
+                        <p class="card-text flex-grow-1" style="font-size: 0.9rem;">
+                            {{ \Str::limit($product->deskripsi, 100) }}
+                        </p>
+                        
+                        <!-- Harga dan Stok -->
+                        <div class="mb-2">
+                            <p class="card-text text-success fw-bold fs-5 mb-1">
+                                Rp {{ number_format($product->harga, 0, ',', '.') }}
+                            </p>
+                            <p class="card-text mb-0">
+                                <small class="text-muted">
+                                    Stok: {{ $product->stok > 0 ? $product->stok : 'Habis' }}
+                                </small>
+                            </p>
+                        </div>
+
+                        <!-- Tombol Aksi -->
                         <div class="d-flex justify-content-between mt-auto">
-                            <a href="/layanan/chat" class="btn btn-outline-secondary btn-sm">
+                            <a href="{{ route('layanan.chat', $product->id) }}" class="btn btn-outline-secondary btn-sm">
                                 <i class="fas fa-comments"></i> Chat
                             </a>
-                            <a href="#" class="btn btn-outline-warning btn-sm">
-                                <i class="fas fa-shopping-cart"></i> Cart
-                            </a>
-                            <a href="/checkout" class="btn btn-outline-success btn-sm">
+                            
+                            <form action="{{ route('cart.add', $product->id) }}" method="POST" class="d-inline">
+                                @csrf
+                                <button type="submit" class="btn btn-outline-warning btn-sm" {{ $product->stok < 1 ? 'disabled' : '' }}>
+                                    <i class="fa fa-shopping-cart"></i> Cart
+                                </button>
+                            </form>
+                            
+                            <a href="{{ route('toko.buy', $product->id) }}" class="btn btn-outline-success btn-sm" {{ $product->stok < 1 ? 'disabled' : '' }}>
                                 <i class="fas fa-credit-card"></i> Buy
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Product 3 -->
-            <div class="col">
-                <div class="card h-100 border-0 shadow">
-                    <img src="../img/3.jpg" class="card-img-top" alt="Apple Macbook Air M1">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title fw-bold">Apple Macbook Air M1</h5>
-                        <p class="card-text flex-grow-1">(RESMI IBOX) Apple MacBook Air M1 Chip 2020 256GB 8GB Garansi resmi - silver</p>
-                        <p class="card-text text-success fw-bold fs-5">Rp. 12.449.000</p>
-                        <p class="card-text"><small class="text-muted">Stok: 7</small></p>
-                        <div class="d-flex justify-content-between mt-auto">
-                            <a href="/layanan/chat" class="btn btn-outline-secondary btn-sm">
-                                <i class="fas fa-comments"></i> Chat
-                            </a>
-                            <a href="#" class="btn btn-outline-warning btn-sm">
-                                <i class="fas fa-shopping-cart"></i> Cart
-                            </a>
-                            <a href="/checkout" class="btn btn-outline-success btn-sm">
-                                <i class="fas fa-credit-card"></i> Buy
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        @empty
+            <div class="col-12 text-center">
+                <h3>Tidak ada produk yang tersedia</h3>
             </div>
-
-            <!-- Product 4 -->
-            <div class="col">
-                <div class="card h-100 border-0 shadow">
-                    <img src="../img/4.jpg" class="card-img-top" alt="ASUS VivoBook 14">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title fw-bold">ASUS VivoBook 14</h5>
-                        <p class="card-text flex-grow-1">ASUS VivoBook 14 M415DAO - RYZEN 3-3250U 8GB SSD 512GB 14" FHD W10 OHS</p>
-                        <p class="card-text text-success fw-bold fs-5">Rp. 5.999.000</p>
-                        <p class="card-text"><small class="text-muted">Stok: 5</small></p>
-                        <div class="d-flex justify-content-between mt-auto">
-                            <a href="/layanan/chat" class="btn btn-outline-secondary btn-sm">
-                                <i class="fas fa-comments"></i> Chat
-                            </a>
-                            <a href="#" class="btn btn-outline-warning btn-sm">
-                                <i class="fas fa-shopping-cart"></i> Cart
-                            </a>
-                            <a href="/checkout" class="btn btn-outline-success btn-sm">
-                                <i class="fas fa-credit-card"></i> Buy
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforelse
     </div>
-@else
-    <script>
-        window.location.href = "{{ route('login') }}";
-    </script>
-@endif
+
+    <!-- Pagination -->
+    <div class="d-flex justify-content-center mt-4">
+        {{ $produk->links() }}
+    </div>
+</div>
+
+@push('styles')
+<style>
+    .product-card {
+        transition: transform 0.2s;
+    }
+    .product-card:hover {
+        transform: translateY(-5px);
+    }
+    .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+</style>
+@endpush
+
+@push('scripts')
+<script>
+    // Auto-hide flash messages
+    setTimeout(function() {
+        $('.alert').fadeOut('slow');
+    }, 3000);
+</script>
+@endpush
 @endsection
