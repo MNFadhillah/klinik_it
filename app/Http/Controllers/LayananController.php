@@ -65,4 +65,24 @@ class LayananController extends Controller
     {
         return view('user.layanan.chat');
     }
+
+        /**
+     * Menampilkan halaman jasa instalasi.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function jasaInstalasi()
+    {
+        return view('user.layanan.jasa_instalasi');
+    }
+
+            /**
+     * Menampilkan halaman jasa servis.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function jasaServis()
+    {
+        return view('user.layanan.jasa_servis');
+    }
 }

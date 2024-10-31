@@ -132,6 +132,7 @@
     </style>
 </head>
 <body>
+
     <div class="container">
         <button class="back-button" onclick="window.history.back();">
             <img src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back Icon">
@@ -176,7 +177,52 @@
 
                 <button type="submit">Submit</button>
             </form>
+
+    @if (Auth::check())
+        <div class="container">
+            <!-- Tombol kembali dengan ikon di pojok kiri atas -->
+            <button class="back-button" onclick="window.history.back();">
+                <img src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back Icon">
+            </button>
+
+            <div class="form-box">
+                <div class="logo">
+                    <img src="../assets/img/logo.png" alt="Klinik IT Logo" />
+                </div>
+                <h2>Formulir Servis</h2>
+                <div class="logo-line"></div> <!-- Garis di bawah judul berwarna putih -->
+                
+                <form>
+                    <label for="name">Nama</label>
+                    <input type="text" id="name" name="name">
+
+                    <label for="phone">No. Hp</label>
+                    <input type="tel" id="phone" name="phone">
+
+                    <label for="address">Alamat</label>
+                    <input type="text" id="address" name="address">
+
+                    <label for="service">Jenis Servis</label>
+                    <select id="service" name="service">
+                        <option value="komputer">Servis Komputer</option>
+                        <option value="laptop">Servis Laptop</option>
+                    </select>
+
+                    <label for="problem">Masalah / Error</label>
+                    <input type="text" id="problem" name="problem">
+
+                    <label for="date">Tanggal Masuk</label>
+                    <input type="date" id="date" name="date">
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
         </div>
-    </div>
+    @else
+        <script>
+            window.location.href = "{{ route('login') }}";
+        </script>
+    @endif
 </body>
 </html>
