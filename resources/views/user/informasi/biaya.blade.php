@@ -3,10 +3,41 @@
 @section('title', 'Biaya Service')
 
 @section('content')
+<style>
+    .back-button {
+        position: relative; /* Menggunakan relative agar mengikuti tata letak elemen */
+        display: inline-flex; /* Inline agar bisa bersebelahan dengan elemen lain jika perlu */
+        margin-top: 10px; /* Jarak vertikal dari elemen sebelumnya */
+        /* margin-bottom: 20px; Jarak ke elemen berikutnya */
+        margin-left: 20px; /* Menggeser tombol sedikit ke kanan */
+        background-color: #A1BECA;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: white;
+        z-index: 10;
+    }
+    
+    .back-button img {
+        width: 20px;
+        height: 20px;
+        pointer-events: none;
+    }
+    
+    .back-button:hover {
+        background-color: #CDC1FF;
+    }
+    </style>
 <header>
     <h1>Biaya Service</h1>
 </header>
-
+<button class="back-button" onclick="window.history.back();">
+    <img src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back Icon">
+</button>
     <div class="image-container">
         <img src="{{ asset('assets/img/biaya_service.png') }}" alt="Foto Biaya Service">
     </div>

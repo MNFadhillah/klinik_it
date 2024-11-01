@@ -141,73 +141,77 @@
     </style>
 </head>
 <body>
-
-    <div class="chat-container">
-        <header class="chat-header">
-            <!-- Tombol kembali menggunakan Font Awesome -->
-            <span class="back-button"><i class="fa fa-arrow-left"></i></span> <!-- Ikon panah kiri Font Awesome -->
-            <div class="admin-info">
-                <div class="profile-pic"></div>
-                <div class="admin-details">
-                    <h2>Admin</h2>
-                    <p>+62 838 9109 6543</p>
+    @if (Auth::check())
+        <div class="chat-container">
+            <header class="chat-header">
+                <!-- Tombol kembali menggunakan Font Awesome -->
+                <span class="back-button"><i class="fa fa-arrow-left"></i></span> <!-- Ikon panah kiri Font Awesome -->
+                <div class="admin-info">
+                    <div class="profile-pic"></div>
+                    <div class="admin-details">
+                        <h2>Admin</h2>
+                        <p>+62 838 9109 6543</p>
+                    </div>
                 </div>
+            </header>
+
+            <div id="chat-box" class="chat-box">
+                <!-- Pesan chat akan muncul di sini -->
             </div>
-        </header>
 
-        <div id="chat-box" class="chat-box">
-            <!-- Pesan chat akan muncul di sini -->
+            <div class="chat-input">
+                <input id="chat-input" type="text" placeholder="Ketik pesan Anda di sini...">
+                <button id="send-button" type="submit">➤</button>
+            </div>
         </div>
 
-        <div class="chat-input">
-            <input id="chat-input" type="text" placeholder="Ketik pesan Anda di sini...">
-            <button id="send-button" type="submit">➤</button>
-        </div>
-    </div>
+        <script>
+            // Memilih elemen
+            const chatBox = document.getElementById('chat-box');
+            const chatInput = document.getElementById('chat-input');
+            const sendButton = document.getElementById('send-button');
 
-    <script>
-        // Memilih elemen
-        const chatBox = document.getElementById('chat-box');
-        const chatInput = document.getElementById('chat-input');
-        const sendButton = document.getElementById('send-button');
+            // Fungsi untuk menambahkan pesan ke kotak chat
+            function appendMessage(message, isUser) {
+                const messageBubble = document.createElement('div');
+                messageBubble.classList.add('chat-bubble');
+                messageBubble.classList.add(isUser ? 'right' : 'left');
+                messageBubble.innerHTML = `<p>${message}</p>`;
+                chatBox.appendChild(messageBubble);
 
-        // Fungsi untuk menambahkan pesan ke kotak chat
-        function appendMessage(message, isUser) {
-            const messageBubble = document.createElement('div');
-            messageBubble.classList.add('chat-bubble');
-            messageBubble.classList.add(isUser ? 'right' : 'left');
-            messageBubble.innerHTML = `<p>${message}</p>`;
-            chatBox.appendChild(messageBubble);
-
-            // Scroll ke bawah
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
-
-        // Mengirim pesan ketika tombol diklik
-        sendButton.addEventListener('click', function() {
-            const message = chatInput.value.trim();
-
-            if (message) {
-                // Menambahkan pesan pengguna ke chat
-                appendMessage(message, true);
-
-                // Menghapus isi kolom input
-                chatInput.value = '';
+                // Scroll ke bawah
+                chatBox.scrollTop = chatBox.scrollHeight;
             }
-        });
 
-        // Mengirim pesan ketika tombol "Enter" ditekan
-        chatInput.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                sendButton.click();
-            }
-        });
+            // Mengirim pesan ketika tombol diklik
+            sendButton.addEventListener('click', function() {
+                const message = chatInput.value.trim();
 
-        document.querySelector('.back-button').addEventListener('click', function() {
-            window.history.back(); // Kembali ke halaman sebelumnya
-        });
+                if (message) {
+                    // Menambahkan pesan pengguna ke chat
+                    appendMessage(message, true);
 
-    </script>
+                    // Menghapus isi kolom input
+                    chatInput.value = '';
+                }
+            });
 
+            // Mengirim pesan ketika tombol "Enter" ditekan
+            chatInput.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    sendButton.click();
+                }
+            });
+
+            document.querySelector('.back-button').addEventListener('click', function() {
+                window.history.back(); // Kembali ke halaman sebelumnya
+            });
+
+        </script>
+    @else
+        <script>
+            window.location.href = "{{ route('login') }}";
+        </script>
+    @endif
 </body>
 </html>

@@ -29,6 +29,17 @@ class ProfilController extends Controller
     }
 
     /**
+     * Menampilkan halaman sperpart.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function sperpart()
+    {
+        // Logika untuk masuk sperpart
+        return view('user.profil.sperpart');
+    }
+
+    /**
      * Memperbarui profil pengguna.
      *
      * @param  \Illuminate\Http\Request  $request

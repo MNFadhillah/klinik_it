@@ -133,45 +133,51 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Tombol kembali dengan ikon di pojok kiri atas -->
-        <button class="back-button" onclick="window.history.back();">
-            <img src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back Icon">
-        </button>
+    @if (Auth::check())
+        <div class="container">
+            <!-- Tombol kembali dengan ikon di pojok kiri atas -->
+            <button class="back-button" onclick="window.history.back();">
+                <img src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Back Icon">
+            </button>
 
-        <div class="form-box">
-            <div class="logo">
-                <img src="../assets/img/logo.png" alt="Klinik IT Logo" />
+            <div class="form-box">
+                <div class="logo">
+                    <img src="../assets/img/logo.png" alt="Klinik IT Logo" />
+                </div>
+                <h2>Formulir Instalasi</h2>
+                <div class="logo-line"></div> <!-- Garis di bawah judul berwarna putih -->
+                
+                <form>
+                    <label for="name">Nama</label>
+                    <input type="text" id="name" name="name">
+
+                    <label for="phone">No. Hp</label>
+                    <input type="tel" id="phone" name="phone">
+
+                    <label for="address">Alamat</label>
+                    <input type="text" id="address" name="address">
+
+                    <label for="service">Jenis Instalasi</label>
+                    <select id="service" name="service">
+                        <option value="komputer">Instalasi Software</option>
+                        <option value="laptop">Instalasi Jaringan</option>
+                        <option value="laptop">Perakitan dan Instalasi Komputer</option>
+                    </select>
+
+                    <label for="problem">Keterangan Tambahan</label>
+                    <input type="text" id="problem" name="problem">
+
+                    <label for="date">Tanggal Masuk</label>
+                    <input type="date" id="date" name="date">
+
+                    <button type="submit">Submit</button>
+                </form>
             </div>
-            <h2>Formulir Instalasi</h2>
-            <div class="logo-line"></div> <!-- Garis di bawah judul berwarna putih -->
-            
-            <form>
-                <label for="name">Nama</label>
-                <input type="text" id="name" name="name">
-
-                <label for="phone">No. Hp</label>
-                <input type="tel" id="phone" name="phone">
-
-                <label for="address">Alamat</label>
-                <input type="text" id="address" name="address">
-
-                <label for="service">Jenis Instalasi</label>
-                <select id="service" name="service">
-                    <option value="komputer">Instalasi Software</option>
-                    <option value="laptop">Instalasi Jaringan</option>
-                    <option value="laptop">Perakitan dan Instalasi Komputer</option>
-                </select>
-
-                <label for="problem">Keterangan Tambahan</label>
-                <input type="text" id="problem" name="problem">
-
-                <label for="date">Tanggal Masuk</label>
-                <input type="date" id="date" name="date">
-
-                <button type="submit">Submit</button>
-            </form>
         </div>
-    </div>
+    @else
+        <script>
+            window.location.href = "{{ route('login') }}";
+        </script>
+    @endif
 </body>
 </html>
