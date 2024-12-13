@@ -9,94 +9,109 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminTokoController extends Controller
 {
-
+    // Menampilkan stok produk
     public function stok()
-{
-    $produk = Produk::with('kategori')->get();
-    $categories = Kategori::all();
-    return view('admin.toko.stok', compact('produk', 'categories'));
-}
-
-public function store(Request $request)
-{
-    $request->validate([
-        'nama_produk' => 'required',
-        'harga' => 'required|numeric',
-        'stok' => 'required|integer',
-        'kategori_id' => 'required|exists:kategori,id',
-        'deskripsi' => 'nullable|string|max:1000',
-        'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-    ]);
-
-    $data = $request->except('gambar');
-
-    if ($request->hasFile('gambar')) {
-        $gambar = $request->file('gambar');
-        $nama_file = time() . '_' . $gambar->getClientOriginalName();
-        $path = $gambar->storeAs('public/img', $nama_file);
-        $data['gambar'] = $nama_file;
+    {
+        $produk = Produk::with('kategori')->get();
+        $categories = Kategori::all();
+        return view('admin.toko.stok', compact('produk', 'categories'));
     }
 
-    try {
-        Produk::create($data);
+
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nama_produk' => 'required|string|max:255',
+            'kategori_id' => 'required|exists:kategori,id',
+            'harga' => 'required|numeric',
+            'deskripsi' => 'required|string',
+            'stok' => 'required|numeric',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // Validasi gambar
+        ]);
+
+        // Mengupload gambar jika ada
+        $imagePath = null;
+        if ($request->hasFile('gambar')) {
+            $imagePath = $request->file('gambar')->store('images', 'public');  // Menyimpan gambar di storage dan mendapatkan path-nya
+        }
+
+        // Menyimpan data produk beserta path gambar
+        $product = new Produk([
+            'nama_produk' => $request->input('nama_produk'),
+            'kategori_id' => $request->input('kategori_id'),
+            'harga' => $request->input('harga'),
+            'deskripsi' => $request->input('deskripsi'),
+            'stok' => $request->input('stok'),
+            'gambar' => $imagePath, // Menyimpan path gambar
+        ]);
+        $product->save();
+
         return redirect()->route('admin.toko.stok')->with('success', 'Produk berhasil ditambahkan');
-    } catch (\Exception $e) {
-        return redirect()->route('admin.toko.stok')->with('error', 'Gagal menambahkan produk: ' . $e->getMessage());
     }
-}
 
     // Tampilkan form edit produk
-    public function edit($id)
+    public function edit($produk_id)
     {
-        $produk = Produk::findOrFail($id);
+        $produk = Produk::findOrFail($produk_id);
         $categories = Kategori::all();
-        return view('admin.toko.edit', compact('produk', 'categories'));
+        return view('admin.toko.stok', compact('produk', 'categories'));
     }
 
     // Proses update produk
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'nama_produk' => 'required',
-            'kategori_id' => 'required',
-            'harga' => 'required|numeric',
-            'stok' => 'required|numeric',
-            'deskripsi' => 'nullable|string|max:1000',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi untuk gambar
-        ]);
+    public function update(Request $request, $produk_id)
+{
+    // Validasi input
+    $request->validate([
+        'nama_produk' => 'required|string|max:255',
+        'kategori_id' => 'required|exists:kategori,id',
+        'harga' => 'required|numeric',
+        'stok' => 'required|integer',
+        'deskripsi' => 'nullable|string|max:1000',
+        'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+    ]);
 
-        $produk = Produk::findOrFail($id);
-        $data = $request->all();
+    // Temukan produk berdasarkan ID
+    $produk = Produk::findOrFail($produk_id);
+    
+    // Ambil data yang diperlukan dari request
+    $data = $request->only(['nama_produk', 'kategori_id', 'harga', 'stok', 'deskripsi']);
 
-        if ($request->hasFile('gambar')) {
-            // Hapus gambar lama jika ada
-            if ($produk->gambar) {
-                Storage::delete('public/img/' . $produk->gambar);
-            }
-
-            $gambar = $request->file('gambar');
-            $nama_file = time() . '_' . $gambar->getClientOriginalName();
-            $path = $gambar->storeAs('public/img', $nama_file);
-            $data['gambar'] = $nama_file;
+    // Proses upload gambar jika ada
+    if ($request->hasFile('gambar')) {
+        // Hapus gambar lama jika ada
+        if ($produk->gambar) {
+            Storage::delete('images/' . $produk->gambar);
         }
 
-        $produk->update($data);
-        return redirect()->route('admin.toko.stok')->with('success', 'Produk berhasil diperbarui');
+        // Simpan gambar baru
+        $gambar = $request->file('gambar');
+        $nama_file = time() . '_' . $gambar->getClientOriginalName();
+        $path = $gambar->storeAs('images/', $nama_file);
+
+        // Simpan path gambar ke database
+        $data['gambar'] = $nama_file;
     }
 
+    // Update produk
+    $produk->update($data);
+
+    return redirect()->route('admin.toko.stok')->with('success', 'Produk berhasil diperbarui');
+}
+
     // Hapus produk
-    public function destroy($id)
+    public function destroy($produk_id)
     {
         try {
-            $produk = Produk::findOrFail($id);
+            $produk = Produk::findOrFail($produk_id);
             
             // Hapus gambar jika ada
             if ($produk->gambar) {
-                Storage::delete('public/img/' . $produk->gambar);
+                Storage::delete('images/' . $produk->gambar); // Perbaiki path gambar
             }
 
             $produk->delete();
-            return redirect()->route('admin.toko.stok')->with('success', 'Produk berhasil dihapus');
+                return redirect()->route('admin.toko.stok')->with('success', 'Produk berhasil dihapus');
         } catch (\Exception $e) {
             return redirect()->route('admin.toko.stok')->with('error', 'Gagal menghapus produk');
         }

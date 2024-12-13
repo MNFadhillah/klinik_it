@@ -29,7 +29,16 @@ h1 {
     align-items: center;
 
 }
+.custom-icon {
+    color: #333; /* Gunakan warna abu-abu gelap untuk kesan elegan */
+    font-size: 24px; /* Ukuran ikon yang lebih besar */
+    transition: color 0.3s, transform 0.3s; /* Efek transisi untuk interaksi */
+}
 
+.custom-icon:hover {
+    color: #007bff; /* Ubah warna saat hover menjadi biru (warna primer Bootstrap) */
+    transform: scale(1.1); /* Efek zoom saat hover */
+}
 
 
 .kananAtas {

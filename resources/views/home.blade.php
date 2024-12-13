@@ -113,7 +113,7 @@
          <h2>
           KLINIK IT
           <br/>
-          IT SOLUTION
+          THE SOLUTION
          </h2>
          <p>
           Komputer Anda Sehat, Kami Semangat

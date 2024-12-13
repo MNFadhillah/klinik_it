@@ -43,6 +43,12 @@
                             Daftar Stok
                         </a>
                     </li>
+                    <li>
+                        <a href="/admin/toko/spesifikasi">
+                            <i class="fa-solid fa-list"></i>
+                            Spesifikasi Produk
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="has-submenu">

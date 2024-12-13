@@ -1,0 +1,142 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+/* Produk Image Section */
+.main-image {
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.main-image:hover {
+    transform: scale(1.05);
+}
+
+/* Label Diskon */
+.discount-badge {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Thumbnail Gambar */
+.hover-thumbnail {
+    border: 2px solid transparent;
+    transition: border 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.hover-thumbnail:hover {
+    border: 2px solid #ff9800;
+    transform: scale(1.1);
+}
+
+/* Detail Produk */
+.product-title {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #222;
+}
+
+.price-section .current-price {
+    color: #d9534f;
+}
+
+.price-section .original-price {
+    color: #bbb;
+}
+
+.stock-info {
+    color: #6c757d;
+}
+
+.description {
+    line-height: 1.6;
+}
+
+/* Tombol Aksi */
+button {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 12px 24px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.btn-orange {
+    background-color: #ff9800;
+    color: #fff;
+}
+
+.btn-orange:hover {
+    background-color: #e68900;
+}
+
+.btn-green {
+    background-color: #5cb85c;
+    color: #fff;
+}
+
+.btn-green:hover {
+    background-color: #4cae4c;
+}
+
+.btn-red {
+    background-color: #d9534f;
+    color: #fff;
+}
+
+.btn-red:hover {
+    background-color: #c9302c;
+}
+
+/* Informasi Tambahan */
+.additional-info-title {
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+}
+
+.additional-info-list li {
+    margin: 8px 0;
+    padding-left: 8px;
+    position: relative;
+}
+
+.additional-info-list li:before {
+    content: '✓';
+    color: #5cb85c;
+    font-weight: bold;
+    position: absolute;
+    left: -20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .grid-cols-1 {
+        grid-template-columns: 1fr;
+    }
+}

@@ -8,6 +8,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
     <!-- Font Awesome -->
@@ -55,28 +56,36 @@
                         <a class="dropdown-item" href="/informasi/tutorial_kipas">Membersihkan Kipas</a>
                     </div>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="/toko">Toko</a></li>
+            
+                <!-- Tampilkan link Toko, namun arahkan ke login jika belum login -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ Auth::check() ? route('toko.index') : route('login') }}">Toko</a>
+                </li>
+            
                 <li class="nav-item"><a class="nav-link" href="/tentang">Tentang Kami</a></li>
-
+            
                 @if (Auth::check())
-                    <!-- Jika pengguna sudah login -->
-                    {{-- <li class="nav-item"><a class="nav-link" href="/admin/dashboard">Admin</a></li> --}}
+                    <!-- Tampilkan ikon profil jika sudah login -->
                     <li class="nav-item">
                         <a class="nav-link" href="/profil/profil">
                             <i class="fas fa-user-circle profile-icon"></i>
-                        </a>                        
-                    </li>                    
-                    {{-- <li class="nav-item"><a class="nav-link" href="/profil/profil">Profil</a></li> --}}
-                    {{-- <li class="nav-item"><a class="btn btn-danger" href="{{ route('login.logout') }}">Logout</a></li> --}}
+                        </a>
+                    </li>
                 @else
-                    <!-- Jika pengguna belum login -->
+                    <!-- Tombol Masuk dan Daftar jika belum login -->
                     <div class="kananAtas">
-                        <a href="/register"><button class="buttonD">Daftar</button></a>
+                        <a href="/register">
+                            <button class="buttonD">Daftar</button>
+                        </a>
                         <div class="divider"></div>
-                        <a href="/login"><button class="buttonD">Masuk</button></a>
+                        <a href="/login">
+                            <button class="buttonD">Masuk</button>
+                        </a>
                     </div>
                 @endif
             </ul>
+            
+            
         </div>
     </nav>
 

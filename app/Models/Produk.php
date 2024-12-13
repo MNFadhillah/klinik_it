@@ -9,8 +9,9 @@ class Produk extends Model
 {
     use HasFactory;
     protected $table = 'produk';
+    protected $primaryKey = 'produk_id'; // Kolom primary key
 
-    protected $fillable = ['nama_produk', 'harga', 'stok', 'deskripsi', 'gambar', 'kategori_id', 'created_at', 'updated_at'];
+    protected $fillable = ['nama_produk', 'harga', 'stok', 'deskripsi', 'gambar', 'id_spesifikasi', 'kategori_id', 'created_at', 'updated_at'];
 
     /**
      * Relasi Many-to-One dengan Kategori
@@ -20,4 +21,16 @@ class Produk extends Model
     {
         return $this->belongsTo(Kategori::class, 'kategori_id');
     }
+
+    // Produk.php (Model)
+    // Relasi ke tabel produk_spesifikasi
+    public function spesifikasi()
+    {
+        return $this->hasOne(ProdukSpesifikasi::class, 'produk_id', 'produk_id');
+    }
+    
+    
+
+
+    
 }

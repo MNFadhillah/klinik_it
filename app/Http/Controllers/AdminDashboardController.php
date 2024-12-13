@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class AdminDashboardController extends Controller
 {
@@ -18,25 +20,10 @@ class AdminDashboardController extends Controller
         return view('admin.dashboardAdmin');
     }
 
-    /**
-     * Menampilkan daftar pesanan.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function pesanan()
-    {
-        // Logika untuk mengambil data pesanan
-        return view('admin.toko.pesanan');
-    }
-
-    /**
-     * Menampilkan daftar stok.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function stok()
-    {
-        // Logika untuk mengambil data stok
-        return view('admin.toko.stok');
+    public function logout(Request $request) {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/login');  // Redirect ke halaman login setelah logout
     }
 }

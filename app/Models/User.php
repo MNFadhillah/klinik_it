@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        
     ];
 
     /**
@@ -44,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+        // Menentukan relasi dengan model Order
+        public function orders()
+        {
+            return $this->hasMany(Order::class, 'id_pengguna');
+        }
 }

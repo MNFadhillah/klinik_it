@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags dan link ke CSS eksternal (Bootstrap dan Font Awesome) -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - Klinik IT Solution</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    <!-- CSS tambahan untuk styling halaman -->
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -29,6 +31,18 @@
         .main-content {
             padding: 30px 0;
         }
+        .card {
+            border: none;
+            box-shadow: 0 0 20px rgba(0,0,0,.08);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .card-header {
+            background-color: #4e31aa;
+            color: #fff;
+            font-weight: bold;
+        }
         .box {
             background-color: #fff;
             padding: 20px;
@@ -44,10 +58,35 @@
         .product-image:hover {
             transform: scale(1.1);
         }
+        .summary-table th, .summary-table td {
+            vertical-align: middle;
+        }
         .total-price-summary {
             font-size: 18px;
             color: #4e31aa;
             font-weight: bold;
+        }
+        .checkout-btn {
+            background-color: #4e31aa;
+            color: white;
+            padding: 10px 30px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .checkout-btn:hover {
+            background-color: #3a1078;
+            transform: translateY(-2px);
+        }
+        .back-btn {
+            color: #4e31aa;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            color: #3a1078;
+            text-decoration: none;
         }
         .pesanan-btn {
             display: inline-flex;
@@ -63,6 +102,7 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(78, 49, 170, 0.3);
         }
+
         .pesanan-btn:hover {
             background-color: #3a1078;
             transform: translateY(-2px);
@@ -73,7 +113,7 @@
     </style>
 </head>
 <body>
-    @if (Auth::check())
+    @if (Auth::check()) 
         <div class="header">
             <div class="container">
                 <div class="d-flex align-items-center">
@@ -84,26 +124,23 @@
         </div>
 
         <div class="main-content container">
-            <div class="box">
-                <h4>Informasi Pengiriman</h4>
-                <p><strong>Nama Penerima:</strong> {{ Auth::user()->name }}</p>
-                <!-- Tambahkan informasi pengiriman lainnya jika diperlukan -->
+            <div class="mb-3">
+                <a href="/toko" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Kembali
+                </a>
             </div>
 
             <div class="box">
-                <h2>Detail Produk</h2>
-                <form action="#" method="POST">
-                    @csrf
-                    @php
-                        $item = [
-                            'name' => 'Nama Produk',
-                            'price' => 50000,
-                            'quantity' => 1,
-                            'image' => 'path/to/image.jpg',
-                        ];
-                    @endphp
+                <h4>Informasi Pengiriman</h4>
+                <p><strong>Nama Penerima:</strong> {{ Auth::user()->name }}</p>
+                <!-- Informasi Pengiriman yang lainnya bisa ditambahkan sesuai kebutuhan -->
+            </div>
 
-                    <table class="table">
+            <div class="box">
+                <h2>Ringkasan Pesanan</h2>
+                <form action="{{ route('toko.order.create') }}" method="POST">
+                    @csrf
+                    <table class="table summary-table">
                         <thead>
                             <tr>
                                 <th>Produk</th>
@@ -114,26 +151,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                @php $total = 0; @endphp
-                                <td>
-                                    <img src="{{ asset('storage/' . $produk->gambar) }}" class="product-image img-fluid rounded-top" style="height: auto; object-fit: cover;" alt="{{ $produk->nama_produk }}">
-                                </td>
-                                <td>{{ Str::limit($produk->deskripsi, 60) }}</td>
-                                <td>Rp{{ number_format($produk->harga, 0, ',', '.') }}</td>
-                                <td>{{ $produk->quantity }}</td>
-                                <td>Rp{{ number_format($produk->harga * $produk->quantity, 0, ',', '.') }}</td>
-                            </tr>
-                            @php $total += $produk->harga * $produk->quantity; @endphp
-                            
+                            @php $total = 0; @endphp
+                            @foreach($selectedProducts as $produkId => $item)
+                                <tr>
+                                    <td>
+                                        <img src="{{ asset('storage/' . $item['image']) }}" alt="{{ $item['name'] }}" class="product-image">
+                                    </td>
+                                    <td>{{ $item['name'] }}</td>
+                                    <td id="price_{{ $produkId }}" data-price="{{ $item['price'] }}">Rp. {{ number_format($item['price'], 0, ',', '.') }}</td>
+                                    <td>{{ $item['quantity'] }}</td>
+                                    <td id="total_{{ $produkId }}">Rp. {{ number_format($item['price'] * $item['quantity'], 0, ',', '.') }}</td>
+                                </tr>
+                            @endforeach
+
+
                         </tbody>
                     </table>
 
                     <div class="total-price-summary">
-                        <p>Total Harga: <span id="totalHarga">Rp. {{ number_format($item['price'] * $item['quantity'], 0, ',', '.') }}</span></p>
+                        <p>Total Harga: <span id="totalHarga">Rp. {{ number_format($total, 0, ',', '.') }}</span></p>
                     </div>
 
-                    <button type="submit" class="pesanan-btn">Buat Pesanan</button>
+                    <button type="submit" class="btn btn-primary pesanan-btn">Buat Pesanan</button>
                 </form>
             </div>
         </div>
@@ -145,20 +184,26 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const quantityInput = document.querySelector("input[name='quantity']");
-            const priceElement = document.getElementById("price");
-            const totalElement = document.getElementById("total");
-            const totalHargaElement = document.getElementById("totalHarga");
-
-            quantityInput.addEventListener("input", function () {
-                const quantity = parseInt(quantityInput.value);
-                const price = parseFloat(priceElement.dataset.price);
-                const total = price * quantity;
-
-                totalElement.textContent = "Rp. " + total.toLocaleString('id-ID');
-                totalHargaElement.textContent = "Rp. " + total.toLocaleString('id-ID');
-            });
+            // Fungsi untuk mengupdate total keseluruhan
+            function updateOverallTotal() {
+                let overallTotal = 0;
+    
+                // Menjumlahkan semua harga total produk
+                document.querySelectorAll('#total_{{ $produkId }}').forEach(function (el) {
+                    let price = parseFloat(el.textContent.replace('Rp. ', '').replace(/\./g, '').replace(',', '.'));
+                    if (!isNaN(price)) {
+                        overallTotal += price;
+                    }
+                });
+    
+                // Update total harga keseluruhan
+                document.getElementById('totalHarga').textContent = "Rp. " + overallTotal.toLocaleString('id-ID');
+            }
+    
+            // Panggil fungsi untuk menghitung total keseluruhan saat halaman pertama kali dimuat
+            updateOverallTotal();
         });
     </script>
+    
 </body>
 </html>

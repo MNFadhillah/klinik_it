@@ -3,34 +3,34 @@
 @section('title', 'Tutorial Ganti Layar Laptop')
 
 @section('content')
-<style>
-.back-button {
-    position: relative; /* Menggunakan relative agar mengikuti tata letak elemen */
-    display: inline-flex; /* Inline agar bisa bersebelahan dengan elemen lain jika perlu */
-    margin-top: 10px; /* Jarak vertikal dari elemen sebelumnya */
-    /* margin-bottom: 20px; Jarak ke elemen berikutnya */
-    margin-left: 20px; /* Menggeser tombol sedikit ke kanan */
-    background-color: #A1BECA;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    color: white;
-    z-index: 10;
-}
+    <style>
+    .back-button {
+        position: relative; /* Menggunakan relative agar mengikuti tata letak elemen */
+        display: inline-flex; /* Inline agar bisa bersebelahan dengan elemen lain jika perlu */
+        margin-top: 10px; /* Jarak vertikal dari elemen sebelumnya */
+        /* margin-bottom: 20px; Jarak ke elemen berikutnya */
+        margin-left: 20px; /* Menggeser tombol sedikit ke kanan */
+        background-color: #A1BECA;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: white;
+        z-index: 10;
+    }
 
-.back-button img {
-    width: 20px;
-    height: 20px;
-    pointer-events: none;
-}
+    .back-button img {
+        width: 20px;
+        height: 20px;
+        pointer-events: none;
+    }
 
-.back-button:hover {
-    background-color: #CDC1FF;
-}
+    .back-button:hover {
+        background-color: #CDC1FF;
+    }
 
     </style>
     <header>
@@ -50,7 +50,6 @@
                 </ul>
                 <img src="{{ asset('assets/img/layar_step2.jpeg') }}" alt="Membuka Bezel" width="300">
             </li>
-        </br>
             <li>Lepaskan kabel video:
                 <ul>
                     <li>Angkat layar sedikit dan temukan kabel video di belakang.</li>
@@ -58,7 +57,6 @@
                 </ul>
                 <img src="{{ asset('assets/img/layar_step3.jpeg') }}" alt="Melepas Kabel Video" width="300">
             </li>
-        </br>
             <li>Angkat layar lama dan pasang layar baru:
                 <ul>
                     <li>Pastikan layar baru kompatibel dengan laptop Anda.</li>
@@ -66,14 +64,12 @@
                 <img src="{{ asset('assets/img/layar_step4.jpeg') }}" alt="Memasang Layar Baru" width="300">
             </li>
             <li>Sambungkan kembali kabel video ke layar baru.</li>
-        </br>
             <li>Pasang kembali bezel layar, mulai dari bagian atas dan tekan perlahan ke sekeliling.</li>
-        </br>
             <li>Pasang kembali baterai dan nyalakan laptop untuk menguji layar baru.</li>
             <img src="{{ asset('assets/img/layar_step5.jpeg') }}" alt="Nyala" width="300">
         </ol>
         <div class="warning">
-            <p style="color: red;"><strong>Peringatan:</strong> Jika Anda tidak yakin dengan prosedur ini, sebaiknya bawa laptop Anda ke teknisi profesional untuk menghindari kerusakan lebih lanjut.</p>
+            <p><strong>Peringatan:</strong> Jika Anda tidak yakin dengan prosedur ini, sebaiknya bawa laptop Anda ke teknisi profesional untuk menghindari kerusakan lebih lanjut.</p>
         </div>
     </div>
 

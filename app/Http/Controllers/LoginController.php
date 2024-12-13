@@ -31,12 +31,19 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
-
+    
+        // Autentikasi pengguna
         if (Auth::attempt($credentials, $request->checkRemember)) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+    
+            // Cek apakah user adalah admin
+            if (Auth::user()->is_admin == 1) {
+                return redirect()->route('admin.dashboard'); // sesuaikan dengan route dashboard admin
+            } else {
+                return redirect()->route('home'); // Redirect ke dashboard pengguna biasa
+            }
         }
-
+    
         return back()->withErrors([
             'email' => 'Tidak ada akun yang cocok dengan inputan anda'
         ])->onlyInput('email');
@@ -51,9 +58,9 @@ class LoginController extends Controller
         return redirect()->route('login');
     }
 
-    public function ShowDashboardAdmin()
-    {
-        return view('admin.dashboardAdmin');
-    }
+    // public function ShowDashboardAdmin()
+    // {
+    //     return view('admin.dashboardAdmin');
+    // }
 
 }

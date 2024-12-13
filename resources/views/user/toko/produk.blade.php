@@ -1,149 +1,69 @@
 @extends('layouts.main')
 
+@section('title', 'Produk')
+
 @section('content')
 <div class="container mt-5">
-    <!-- Search Bar dan Filter -->
-    <div class="row mb-4">
-        <div class="col-md-8">
-            <form action="{{ route('toko.index') }}" method="GET" class="d-flex">
-                <input type="text" name="search" class="form-control me-2" placeholder="Cari produk..." value="{{ request('search') }}">
-                <select name="kategori" class="form-select me-2" style="width: 200px;">
-                    <option value="">Semua Kategori</option>
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}" {{ request('kategori') == $category->id ? 'selected' : '' }}>
-                            {{ $category->nama_kategori }}
-                        </option>
-                    @endforeach
-                </select>
-                <button type="submit" class="btn btn-primary">Cari</button>
-            </form>
-        </div>
-        <div class="col-md-4 d-flex justify-content-end">
-            <a href="{{ route('toko.cart') }}" class="btn btn-primary me-2 rounded-pill">
-                <i class="fa fa-shopping-cart"></i> Keranjang
-                @if(session('cart_count'))
-                    <span class="badge bg-danger rounded-pill">{{ session('cart_count') }}</span>
-                @endif
-            </a>
-            <a href="{{ route('toko.checkout') }}" class="btn btn-success rounded-pill">
-                <i class="fa fa-money"></i> Pesanan
-            </a>
-        </div>
-    </div>
+    <h2 class="mb-4 text-center">{{ $category->nama_kategori }}</h2>
 
-    <!-- Flash Messages -->
-    @if(session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
-
-    <!-- Daftar Produk -->
+    <!-- Tampilan Produk -->
     <div class="row row-cols-1 row-cols-md-4 g-4">
-        @forelse($produk as $product)
+        @foreach($products as $product)
             <div class="col mb-4">
-                <div class="card h-100 border-0 shadow-sm product-card">
-                    <!-- Badge untuk produk baru -->
+                <a href="{{ route('toko.detail', $product->produk_id) }}" class="text-decoration-none text-dark">
+                <div class="card h-100 border-0 shadow-sm product-card position-relative" style="transition: transform 0.3s ease; border-radius: 12px;">
+                    
+                    <!-- Badge "New" jika produk baru -->
                     @if($product->created_at->diffInDays(now()) < 7)
-                        <div class="position-absolute top-0 end-0 m-2">
-                            <span class="badge bg-success">New</span>
-                        </div>
+                        <span class="badge bg-success position-absolute top-0 start-0 m-2" style="padding: 8px; font-size: 12px; font-weight: 600; border-radius: 6px;">New</span>
                     @endif
 
-                    <!-- Gambar Produk -->
-                    <div class="position-relative">
-                        @if($product->gambar)
-                            <img src="{{ asset('storage/img/' . $product->gambar) }}" 
-                                 class="card-img-top" 
-                                 alt="{{ $product->nama_produk }}" 
-                                 style="height: 200px; object-fit: cover;">
-                        @else
-                            <img src="{{ asset('img/no-image.png') }}" 
-                                 class="card-img-top" 
-                                 alt="No Image" 
-                                 style="height: 200px; object-fit: cover;">
-                        @endif
-                    </div>
-
+                    @if($product->gambar)
+                    <img src="{{ asset('storage/' . $product->gambar) }}" 
+                         class="product-image img-fluid rounded-top" 
+                         style="height: auto; object-fit: cover;" 
+                         alt="{{ $product->nama_produk }}">
+                @else
+                    <img src="{{ asset('storage/no-image.png') }}" 
+                         class="product-image img-fluid rounded-top" 
+                         style="height: auto; object-fit: cover;" 
+                         alt="No Image">
+                @endif
+                
+                                    
+                    
+                    <!-- Informasi Produk -->
                     <div class="card-body d-flex flex-column">
-                        <!-- Kategori -->
-                        <span class="badge bg-secondary mb-2">{{ $product->kategori->nama_kategori }}</span>
-                        
-                        <!-- Nama Produk -->
-                        <h5 class="card-title fw-bold text-truncate">{{ $product->nama_produk }}</h5>
-                        
-                        <!-- Deskripsi -->
-                        <p class="card-text flex-grow-1" style="font-size: 0.9rem;">
-                            {{ \Str::limit($product->deskripsi, 100) }}
+                        <h5 class="card-title text-center font-weight-bold">{{ $product->nama_produk }}</h5>
+                        <p class="card-text text-muted text-center" style="font-size: 14px;">{{ Str::limit($product->deskripsi, 60) }}</p>
+                        <p class="card-text text-center fw-bold mb-1" style="color: #E3743D; font-size: 18px;">Rp{{ number_format($product->harga, 0, ',', '.') }}</p>
+                        <p class="card-text text-center">
+                            <small class="text-muted">
+                                Stok: {{ $product->stok }}
+                            </small>
                         </p>
-                        
-                        <!-- Harga dan Stok -->
-                        <div class="mb-2">
-                            <p class="card-text text-success fw-bold fs-5 mb-1">
-                                Rp {{ number_format($product->harga, 0, ',', '.') }}
-                            </p>
-                            <p class="card-text mb-0">
-                                <small class="text-muted">
-                                    Stok: {{ $product->stok > 0 ? $product->stok : 'Habis' }}
-                                </small>
-                            </p>
-                        </div>
 
-                        <!-- Tombol Aksi -->
-                        <div class="d-flex justify-content-between mt-auto">
-                            <a href="{{ route('layanan.chat', $product->id) }}" class="btn btn-outline-secondary btn-sm">
-                                <i class="fas fa-comments"></i> Chat
-                            </a>
-                            
-                            <form action="{{ route('cart.add', $product->id) }}" method="POST" class="d-inline">
+                        <div class="d-flex justify-content-around align-items-center mt-auto gap-2">
+                            <form action="#" method="POST" class="mb-0">
                                 @csrf
-                                <button type="submit" class="btn btn-outline-warning btn-sm" {{ $product->stok < 1 ? 'disabled' : '' }}>
-                                    <i class="fa fa-shopping-cart"></i> Cart
+                                <button type="submit" class="btn btn-outline-warning btn-sm d-flex align-items-center">
+                                    <i class="fa fa-cart-plus me-1"></i> Keranjang
                                 </button>
                             </form>
-                            
-                            <a href="{{ route('toko.buy', $product->id) }}" class="btn btn-outline-success btn-sm" {{ $product->stok < 1 ? 'disabled' : '' }}>
-                                <i class="fas fa-credit-card"></i> Buy
+                            <a href="#" class="btn btn-outline-success btn-sm d-flex align-items-center">
+                                <i class="fa fa-shopping-bag me-1"></i> Beli
+                            </a>
+                            <a href="/layanan/chat" class="btn btn-outline-primary btn-sm d-flex align-items-center">
+                                <i class="fa fa-comments me-1"></i> Chat
                             </a>
                         </div>
+                        
+                        
                     </div>
                 </div>
+                </a>
             </div>
-        @empty
-            <div class="col-12 text-center">
-                <h3>Tidak ada produk yang tersedia</h3>
-            </div>
-        @endforelse
-    </div>
-
-    <!-- Pagination -->
-    <div class="d-flex justify-content-center mt-4">
-        {{ $produk->links() }}
+        @endforeach
     </div>
 </div>
-
-@push('styles')
-<style>
-    .product-card {
-        transition: transform 0.2s;
-    }
-    .product-card:hover {
-        transform: translateY(-5px);
-    }
-    .btn-sm {
-        padding: 0.25rem 0.5rem;
-        font-size: 0.875rem;
-    }
-</style>
-@endpush
-
-@push('scripts')
-<script>
-    // Auto-hide flash messages
-    setTimeout(function() {
-        $('.alert').fadeOut('slow');
-    }, 3000);
-</script>
-@endpush
 @endsection

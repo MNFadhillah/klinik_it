@@ -2,75 +2,79 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kategori;
+use App\Models\Order;
 use App\Models\Produk;
+use App\Models\Kategori;
+use App\Models\OrderItem;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Controller;
+use Illuminate\Container\Attributes\Auth;
 
 class ProductController extends Controller
-{
-    //
+{ 
+
+    public function detail($id)
+    {
+        $category = Kategori::all();
+        // Ambil data produk berdasarkan ID
+        $produk = Produk::with('spesifikasi', 'kategori')->findOrFail($id);
     
-    public function showByCategory($id)
-    {
-        $category = Kategori::findOrFail($id); // Ambil kategori berdasarkan ID
-        $produk = Produk::where('kategori_id', $id)->get(); // Ambil produk dari kategori
-        return view('user.toko.produk', compact('category', 'produk'));
+        // Ambil produk terkait berdasarkan kategori yang sama, kecuali produk yang sedang dilihat
+        $produkTerkait = Produk::where('kategori_id', $produk->category_id)
+                                ->where('produk_id', '!=', $id)
+                                ->take(4) // Ambil maksimal 4 produk terkait
+                                ->get();
+    
+        return view('user.toko.detail', compact('produk', 'produkTerkait', 'category'));
     }
+    
 
-    // public function cart()
-    // {
-    //     return view('user.toko.cart');
-    // }
-
-    // /**
-    //  * Menampilkan halaman checkout.
-    //  *
-    //  * @return \Illuminate\View\View
-    //  */
-    // public function checkout()
-    // {
-    //     // Logika untuk memproses checkout
-    //     return view('user.toko.checkout');
-    // }
-
-    public function addToCart($id)
+    public function updateCart(Request $request)
     {
-        $product = Produk::findOrFail($id);
+        if ($request->id && $request->quantity) {
+            $cart = session()->get('cart');
+            $product = Produk::find($request->id);
 
-        // Simpan produk di keranjang (menggunakan session)
-        $cart = session()->get('cart', []);
+            if (!$product) {
+                return response()->json(['success' => false, 'message' => 'Produk tidak ditemukan.']);
+            }
 
-        if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
-        } else {
-            $cart[$id] = [
-                "name" => $product->nama_produk,
-                "quantity" => 1,
-                "price" => $product->harga,
-                "image" => $product->gambar
-            ];
+            if ($product->stok >= $request->quantity) {
+                $cart[$request->id]["quantity"] = $request->quantity;
+                session()->put('cart', $cart);
+                session(['cart_count' => count($cart)]);
+                return response()->json(['success' => true]);
+            }
+
+            return response()->json(['success' => false, 'message' => 'Stok tidak mencukupi. Stok tersedia: ' . $product->stok]);
         }
-
-        session()->put('cart', $cart);
-
-        return redirect()->route('toko.cart')->with('success', 'Produk berhasil ditambahkan ke keranjang!');
     }
 
 
-    public function cart()
+    public function removeFromCart(Request $request)
     {
-        $cart = session()->get('cart', []); // Ambil keranjang dari session
-        return view('user.toko.cart', compact('cart'));
-    }
-
-    public function checkout()
-    {
-        $cart = session()->get('cart', []); // Ambil keranjang dari session
-        $total = array_sum(array_column($cart, 'price')); // Hitung total pembayaran
-        return view('user.toko.checkout', compact('cart', 'total'));
+        if($request->id) {
+            $cart = session()->get('cart');
+            if(isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+                session(['cart_count' => count($cart)]);
+            }
+            return response()->json(['success' => true]);
+        }
     }
 
     
+// TokoController.php
+    public function showspesifikasi($id)
+    {
+        $produk = Produk::with('spesifikasi')->findOrFail($id);
+        return view('toko.detail', compact('produk'));
+    }
 
+
+
+    
+//
+  
 }
